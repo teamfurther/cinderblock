@@ -1,0 +1,96 @@
+.navigation__item {
+    align-items: center;
+    color: $gray-darker;
+    display: flex;
+    flex-grow: 0;
+    flex-shrink: 0;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1.5;
+    padding: 10px 15px;
+    position: relative;
+    text-decoration: none;
+
+    &:hover {
+        background-color: $gray-lighter;
+        color: $blue-dark;
+    }
+
+    &.has-dropdown {
+        align-items: stretch;
+        padding: 0;
+
+        & > a {
+            align-items: center;
+            display: flex;
+            flex-grow: 0;
+            flex-shrink: 0;
+            line-height: 1.5;
+            padding: 10px 30px 10px 15px;
+            position: relative;
+            text-decoration: none;
+            width: 100%;
+
+            &:not(.is-arrowless):after {
+                border: 3px solid $blue;
+                border-radius: 2px;
+                border-right: 0;
+                border-top: 0;
+                content: " ";
+                display: block;
+                height: .625em;
+                margin-top: -.375em;
+                pointer-events: none;
+                position: absolute;
+                right: 1.125em;
+                top: 50%;
+                transform: rotate(-45deg);
+                transform-origin: center;
+                width: .625em;
+            }
+
+            &.is-arrowless {
+                padding: 10px 15px;
+            }
+        }
+
+        &:hover {
+            .navigation__dropdown {
+                display: block;
+            }
+        }
+
+        .navigation__dropdown {
+            background-color: $white;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            border-top: 1px solid $gray;
+            box-shadow: 0 1px 4px 0 rgba($black, .1);
+            display: none;
+            left: 0;
+            min-width: 100%;
+            position: absolute;
+            top: 100%;
+            z-index: 20;
+        }
+    }
+
+    &.is-active {
+        color: $blue;
+    }
+
+    &.is-tab {
+        border-bottom: 3px solid $gray-light;
+        margin-right: 15px;
+
+        &:hover {
+            border-bottom: 3px solid $gray;
+        }
+
+        &.is-active {
+            border-bottom: 3px solid $green-light;
+        }
+    }
+
+
+}

@@ -1,0 +1,94 @@
+.btn {
+    @include font-smoothing();
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    display: inline-block;
+    font-family: $font;
+    font-size: 13px;
+    font-weight: 900;
+    line-height: 19px;
+    margin-bottom: 15px;
+    padding: 10px;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: .4s all ease-out;
+
+    &:focus {
+        outline: none;
+    }
+
+    &[disabled] {
+        cursor: not-allowed;
+        opacity: .3;
+        pointer-events: none;
+    }
+
+    &.is-block {
+        display: block;
+        width: 100%;
+    }
+
+    &.is-loading {
+        .btn__content {
+            visibility: hidden;
+        }
+    }
+
+    // Color variations
+    &.is-cancel {
+        background-color: $gray;
+        color: $white;
+
+        &:hover {
+            background-color: darken($gray, 5%);
+        }
+    }
+
+    &.is-default {
+        background-color: $blue;
+        color: $white;
+
+        &:hover {
+            background-color: darken($blue, 5%);
+        }
+    }
+
+    &.is-error {
+        background-color: $red-light;
+        color: $white;
+
+        &:hover {
+            background-color: darken($red-light, 5%);
+        }
+    }
+
+    &.is-success {
+        background-color: $green-light;
+        color: $white;
+
+        &:hover {
+            background-color: darken($green-light, 5%);
+        }
+    }
+
+    &.is-warning {
+        background-color: $yellow;
+        color: mix($yellow, $black, 50%);
+
+        &:hover {
+            background-color: darken($yellow, 5%);
+        }
+    }
+
+    // Loading SVG
+    svg {
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+}

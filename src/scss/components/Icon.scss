@@ -1,0 +1,86 @@
+// https://feathericons.com
+
+.icon {
+    flex-shrink: 0;
+    fill: none;
+    height: 24px;
+    stroke: $gray-darker;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.5;
+    transition: .4s all ease-out;
+    width: 24px;
+
+    // Color variations
+    &.is-blue {
+        stroke: $blue-light;
+    }
+
+    &.is-green {
+        stroke: $green-light;
+    }
+
+    &.is-light {
+        stroke: $gray-dark;
+    }
+
+    &.is-lighter {
+        stroke: $gray;
+    }
+
+    &.is-red {
+        stroke: $red-light;
+    }
+
+    // Hover variations
+    &.has-blue-hover {
+        &:hover {
+            stroke: $blue;
+        }
+    }
+
+    &.has-green-hover {
+        &:hover {
+            stroke: $green-light;
+        }
+    }
+
+    &.has-light-hover {
+        &:hover {
+            stroke: $gray-dark;
+        }
+    }
+
+    &.has-lighter-hover {
+        &:hover {
+            stroke: $gray;
+        }
+    }
+
+    &.has-red-hover {
+        &:hover {
+            stroke: $red-light;
+        }
+    }
+
+    // Size variations
+    &.is-large {
+        height: 32px;
+        width: 32px;
+    }
+
+    &.is-larger {
+        height: 36px;
+        width: 36px;
+    }
+
+    &.is-small {
+        height: 20px;
+        width: 20px;
+    }
+
+    &.is-smaller {
+        height: 16px;
+        width: 16px;
+    }
+}

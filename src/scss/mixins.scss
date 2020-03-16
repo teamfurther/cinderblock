@@ -1,0 +1,128 @@
+// Font smoothing
+@mixin font-smoothing() {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+// Keyframes
+@mixin keyframes($animationName) {
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+    @keyframes #{$animationName} {
+        @content;
+    }
+}
+
+// Margins
+@mixin make-margins() {
+    @each $i in (0, 5, 10, 15, 30, 45, 60, 90) {
+        .has-margin-#{$i} { margin-bottom: #{$i}px !important; }
+        .has-margin-b#{$i} { margin-bottom: #{$i}px !important; }
+        .has-margin-l#{$i} { margin-left: #{$i}px !important; }
+        .has-margin-r#{$i} { margin-right: #{$i}px !important; }
+        .has-margin-t#{$i} { margin-top: #{$i}px !important; }
+    }
+}
+
+// Paddings
+@mixin make-paddings() {
+    @each $i in (0, 5, 10, 15, 30) {
+        .has-padding#{$i} { padding: #{$i}px !important; }
+        .has-padding-b#{$i} { padding-bottom: #{$i}px !important; }
+        .has-padding-l#{$i} { padding-left: #{$i}px !important; }
+        .has-padding-r#{$i} { padding-right: #{$i}px !important; }
+        .has-padding-t#{$i} { padding-top: #{$i}px !important; }
+    }
+}
+
+// Responsiveness
+@mixin from($device) {
+    @media screen and (min-width: $device) {
+        @content;
+    }
+}
+
+@mixin until($device) {
+    @media screen and (max-width: $device - 1px) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media screen and (max-width: $tablet - 1px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (min-width: $tablet), print {
+        @content;
+    }
+}
+
+@mixin tablet-only {
+    @media screen and (min-width: $tablet) and (max-width: $desktop - 1px) {
+        @content;
+    }
+}
+
+@mixin touch {
+    @media screen and (max-width: $desktop - 1px) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media screen and (min-width: $desktop) {
+        @content;
+    }
+}
+
+@mixin desktop-only {
+    @if $widescreen-enabled {
+        @media screen and (min-width: $desktop) and (max-width: $widescreen - 1px) {
+            @content;
+        }
+    }
+}
+
+@mixin until-widescreen {
+    @if $widescreen-enabled {
+        @media screen and (max-width: $widescreen - 1px) {
+            @content;
+        }
+    }
+}
+
+@mixin widescreen {
+    @if $widescreen-enabled {
+        @media screen and (min-width: $widescreen) {
+            @content;
+        }
+    }
+}
+
+@mixin widescreen-only {
+    @if $widescreen-enabled and $fullhd-enabled {
+        @media screen and (min-width: $widescreen) and (max-width: $fullhd - 1px) {
+            @content;
+        }
+    }
+}
+
+@mixin until-fullhd {
+    @if $fullhd-enabled {
+        @media screen and (max-width: $fullhd - 1px) {
+            @content;
+        }
+    }
+}
+
+@mixin fullhd {
+    @if $fullhd-enabled {
+        @media screen and (min-width: $fullhd) {
+            @content;
+        }
+    }
+}

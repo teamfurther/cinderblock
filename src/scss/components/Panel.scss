@@ -1,0 +1,81 @@
+.panel {
+    background-color: $white;
+    border: 1px solid $gray-light;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px 0 rgba($black, .1);
+    margin: 0 auto 15px;
+    padding: 15px;
+    width: calc(100% - 30px);
+
+    @include desktop() {
+        max-width: $desktop - $container-offset;
+    }
+
+    @include widescreen() {
+        max-width: $widescreen - $container-offset;
+    }
+
+    @include fullhd() {
+        max-width: $fullhd - $container-offset;
+    }
+
+    &.is-narrow {
+        max-width: 400px;
+
+        .panel__bottom {
+            display: block;
+
+            &__right {
+                margin: 15px 0 0 0;
+            }
+        }
+
+        .panel__top {
+            display: block;
+
+            &__right {
+                margin: 15px 0 0 0;
+            }
+        }
+    }
+
+    &__bottom {
+        margin-top: 15px;
+
+        @include desktop() {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        &__right {
+            margin-top: 15px;
+
+            @include desktop() {
+                margin: 0 0 0 15px;
+            }
+        }
+    }
+
+    &__title {
+        color: $black;
+        font-size: 22px;
+        font-weight: 400;
+    }
+
+    &__top {
+        margin-bottom: 15px;
+
+        @include desktop() {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        &__right {
+            margin-top: 15px;
+
+            @include desktop() {
+                margin: 0 0 0 15px;
+            }
+        }
+    }
+}

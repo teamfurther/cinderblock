@@ -1,0 +1,51 @@
+// Colors
+$black: #1a202c;
+$gray-darker: #718096;
+$gray-dark: #a0aec0;
+$gray: #cbd5e0;
+$gray-light: #edf2f7;
+$gray-lighter: #f7fafc;
+$white: #ffffff;
+
+$blue-lighter: #a4d1f6;
+$blue-light: #6bb1eb;
+$blue: #4299e1;
+$blue-dark: #237ac2;
+
+$green-lighter: #c6f6d5;
+$green-light: #9ae6b4;
+$green: #45a676;
+$green-dark: #2f855a;
+
+$red-lighter: #feb2b2;
+$red-light: #fc8181;
+$red: #e65a5a;
+$red-dark: #cf3c3c;
+
+$yellow-lighter: #fffff0;
+$yellow-light: #f6f6af;
+$yellow: #ebeb7c;
+$yellow-dark: #c1c14c;
+
+// Font
+@import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i,900,900i&display=swap&subset=latin-ext');
+$font: 'Lato', Helvetica, Arial, sans-serif;
+
+// Responsiveness
+// The container horizontal gap, which acts as the offset for breakpoints
+$gap: 32px !default;
+$container-offset: 2 * $gap !default;
+
+// 960, 1152, and 1344 have been chosen because they are divisible by both 12 and 16
+$tablet: 769px !default;
+
+// 960px container + 4rem
+$desktop: 960px + 2 * $gap !default;
+
+// 1152px container + 4rem
+$widescreen: 1152px + 2 * $gap !default;
+$widescreen-enabled: true !default;
+
+// 1344px container + 4rem
+$fullhd: 1344px + 2 * $gap !default;
+$fullhd-enabled: true !default;

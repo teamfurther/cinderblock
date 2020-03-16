@@ -1,0 +1,98 @@
+.tooltip {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    left: 50%;
+    min-width: 350px;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 26px;
+    transform: translateX(-50%);
+    transition: .4s all ease-out;
+    z-index: 900;
+
+    &.is-open {
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    &__inner {
+        align-items: center;
+        background-color: $gray-darker;
+        border-radius: 5px;
+        color: $white;
+        display: flex;
+        max-width: 350px;
+        min-height: 50px;
+        padding: 5px 10px;
+        position: relative;
+
+        &:after {
+            border: solid transparent;
+            border-bottom-color: $gray-darker;
+            border-width: 6px;
+            bottom: 100%;
+            content: '';
+            height: 0;
+            left: 50%;
+            margin-left: -6px;
+            pointer-events: none;
+            position: absolute;
+            width: 0;
+        }
+    }
+
+    // Position variations
+    &.is-at-top {
+        bottom: 26px;
+        top: auto;
+
+        .tooltip__inner {
+            &:after {
+                border-bottom-color: transparent;
+                border-top-color: $gray-darker;
+                bottom: 0;
+                top: 100%;
+            }
+        }
+    }
+
+    &.is-at-left {
+        justify-content: flex-end;
+        left: auto;
+        right: 26px;
+        top: 50%;
+        transform: translateY(-50%);
+
+        .tooltip__inner {
+            &:after {
+                border-bottom-color: transparent;
+                border-left-color: $gray-darker;
+                bottom: 50%;
+                left: 100%;
+                margin-bottom: -6px;
+                margin-left: 0;
+            }
+        }
+    }
+
+    &.is-at-right {
+        justify-content: flex-start;
+        left: 26px;
+        top: 50%;
+        transform: translateY(-50%);
+
+        .tooltip__inner {
+            &:after {
+                border-bottom-color: transparent;
+                border-right-color: $gray-darker;
+                bottom: 50%;
+                left: auto;
+                margin-bottom: -6px;
+                margin-left: 0;
+                right: 100%;
+            }
+        }
+    }
+}

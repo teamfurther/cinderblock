@@ -1,0 +1,86 @@
+{
+  "name": "@teamfurther/cinderblock",
+  "author": {
+    "name": "Further Digital Solutions",
+    "email": "hello@gofurther.digital",
+    "url": "https://gofurther.digital"
+  },
+  "bugs": "https://github.com/teamfurther/cinderblock/issues",
+  "contributors": [
+    {
+      "name": "Norbert Zsombori",
+      "email": "norbert.zsombori@gofurther.digital",
+      "url": "https://github.com/zsnorbi"
+    },
+    {
+      "name": "Peter Illés",
+      "email": "peter.illes@gofurther.digital",
+      "url": "https://github.com/ilpet"
+    }
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "@vue/test-utils": "^1.0.0-beta.30",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^24.9.0",
+    "babel-preset-env": "^1.7.0",
+    "cross-env": "^6.0.3",
+    "fibers": "^4.0.2",
+    "jest": "^24.9.0",
+    "laravel-mix": "^5.0.1",
+    "node-sass": "^4.13.1",
+    "sass": "^1.24.4",
+    "sass-loader": "^8.0.1",
+    "sass-resources-loader": "^2.0.1",
+    "ts-jest": "^24.3.0",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.4",
+    "vue-jest": "^3.0.5",
+    "vue-property-decorator": "^8.3.0",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "description": "Cinderblock is a set of Vue components for quickly setting up admin interfaces.",
+  "homepage": "https://github.com/teamfurther/cinderblock#readme",
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts",
+      "vue"
+    ],
+    "transform": {
+      ".*\\.(vue)$": "vue-jest",
+      "^.+\\.js$": "babel-jest",
+      "^.+\\.ts$": "ts-jest"
+    }
+  },
+  "keywords": [
+    "admin",
+    "boilerplate",
+    "framework",
+    "Vue",
+    "VueJS",
+    "Vue2"
+  ],
+  "license": "MIT",
+  "main": "dist/js/index.js",
+  "peerDependencies": {
+    "debounce": "^1.2",
+    "flatpickr": "^4.6",
+    "vue": "^2.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/teamfurther/cinderblock"
+  },
+  "scripts": {
+    "dev": "npm run development",
+    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "prod": "npm run production",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "test": "jest",
+    "watch": "npm run development -- --watch"
+  },
+  "version": "0.1.0"
+}

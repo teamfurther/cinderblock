@@ -1,0 +1,56 @@
+.control {
+    &__select {
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        background-color: transparent;
+        border: none;
+        border-radius: 0;
+        color: $gray-darker;
+        cursor: pointer;
+        display: block;
+        font-family: $font;
+        font-size: 12px;
+        height: 30px;
+        line-height: 30px;
+        padding: 0 5px;
+        transition: .4s all ease-out;
+        width: 100%;
+
+        &:focus {
+            outline: none;
+        }
+
+        &__group {
+            align-items: center;
+            border-bottom: 1px solid $gray;
+            display: flex;
+            position: relative;
+
+            &.is-disabled {
+                cursor: not-allowed;
+                opacity: .3;
+                pointer-events: none;
+            }
+
+            &.is-readonly {
+                cursor: not-allowed;
+                opacity: .8;
+            }
+
+            &::after {
+                align-items: center;
+                background-color: $gray-lighter;
+                content: '\25BC';
+                display: flex;
+                font-size: 10px;
+                height: 30px;
+                justify-content: center;
+                pointer-events: none;
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 30px;
+            }
+        }
+    }
+}

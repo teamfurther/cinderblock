@@ -1,0 +1,21 @@
+# Compiled output
+/dist
+
+# Dependency directories
+/node_modules
+
+# dotenv environment variables file
+.env
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Mix
+mix-manifest.json
+
+# System files
+.DS_Store
+Thumbs.db
