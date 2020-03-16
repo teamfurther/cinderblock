@@ -14,21 +14,24 @@
 
         // Lifecycle hooks
         mounted() {
-            const bodyFirstChild = document.body.firstChild!;
+            if (!document.querySelector('svg#feather-icons')) {
+                const bodyFirstChild = document.body.firstChild!;
 
-            const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-            svg.style.display = 'none';
-            svg.innerHTML = this.svg;
+                const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                svg.style.display = 'none';
+                svg.setAttribute('id', 'feather-icons');
+                svg.innerHTML = this.svg;
 
-            bodyFirstChild.parentNode!.insertBefore(svg, bodyFirstChild);
+                bodyFirstChild.parentNode!.insertBefore(svg, bodyFirstChild);
+            }
         }
 
         // Props
         @Prop({
             required: true,
             type: String
-        }) icon!: string;
-    };
+            }) icon!: string;
+        };
 </script>
 
 <style lang="scss">

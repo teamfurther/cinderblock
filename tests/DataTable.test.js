@@ -4,6 +4,9 @@ import Vue from 'vue';
 
 import DataTable from '../src/js/components/DataTable';
 
+// Mock a DOM
+document.body.innerHTML = 'This is a mock DOM';
+
 describe('DataTable', function () {
     const wrapper = mount(DataTable, {
         propsData: {

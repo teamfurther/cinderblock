@@ -21,7 +21,7 @@ mix.options({
 
 mix.webpackConfig({
     output: {
-        library: '@further/cinderblock',
+        library: '@teamfurther/cinderblock',
         libraryTarget: 'umd',
         umdNamedDefine: true
     }

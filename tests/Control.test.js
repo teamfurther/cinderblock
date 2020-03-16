@@ -4,6 +4,9 @@ import Vue from 'vue';
 
 import Control from '../src/js/components/Control';
 
+// Mock a DOM
+document.body.innerHTML = 'This is a mock DOM';
+
 describe('Control', function () {
     const wrapper = mount(Control, {
         propsData: {
@@ -26,8 +29,8 @@ describe('Control', function () {
 
     test('icon is set correctly', function () {
         // test
-        expect(wrapper.contains('svg')).toBe(true);
-        expect(wrapper.html()).toContain('feather.svg#' + wrapper.props('icon'));
+        expect(wrapper.contains('svg.icon')).toBe(true);
+        expect(wrapper.html()).toContain('<use xlink:href="#icon-' + wrapper.props('icon') + '">');
     });
 
     test('label is set correctly', function () {

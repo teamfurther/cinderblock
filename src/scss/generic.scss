@@ -15,3 +15,7 @@ body {
 a {
     cursor: pointer;
 }
+
+[v-cloak] {
+    display: none;
+}

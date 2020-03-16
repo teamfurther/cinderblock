@@ -16,6 +16,15 @@
         color: $blue-dark;
     }
 
+    &.has-cursor-default {
+        cursor: default;
+
+        &:hover {
+            background-color: transparent;
+            color: $gray-darker;
+        }
+    }
+
     &.has-dropdown {
         align-items: stretch;
         padding: 0;
@@ -77,6 +86,11 @@
 
     &.is-active {
         color: $blue;
+
+        &:hover {
+            background-color: transparent;
+            color: $blue;
+        }
     }
 
     &.is-tab {

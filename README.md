@@ -1,12 +1,12 @@
 ## Installation
 You can install the package via npm:  
-```npm install @further/cinderblock --save```  
+```npm install @teamfurther/cinderblock --save```  
 or  
-```yarn add @further/cinderblock```
+```yarn add @teamfurther/cinderblock```
 
 **Component registration**
 Import component:  
-```import { ComponentName } from '@further/cinderblock';```
+```import { ComponentName } from '@teamfurther/cinderblock';```
 
 Next you must register your component:  
 ```
@@ -172,7 +172,7 @@ methods: {
          type="autocomplete"
          value-field="alpha3Code"
          v-model="controlValue"
-/>
+></control>
 ```
 
 **Default value format**
@@ -200,7 +200,7 @@ controlValue: 'DEU', // format is given by the format of value-field
          type="checkbox"
          v-bind:options="options"
          v-model="controlValue"
-/>
+></control>
 ```
 
 **Default options format**
@@ -246,7 +246,7 @@ controlValue: [2, 3],
          type="date"
          v-bind:date-config="dateConfig"
          v-model="controlValue"
-/>
+></control>
 ```
 
 **Date config**  
@@ -280,7 +280,7 @@ controlValue: '2020-06-14', // format is give by the Flatpickr date format
          name="myEmailControl"
          type="number"
          v-model="controlValue"
-/>
+></control>
 ```
 
 **Default value format**
@@ -301,7 +301,7 @@ controlValue: 'hello@gofurther.digital',
          name="myFileControl"
          type="file"
          v-model="controlValue"
-/>
+></control>
 ```
 
 **Default value format**
@@ -328,7 +328,7 @@ controlValue: false, // false signals that the file has not changed; null signal
          v-bind:min="1"
          v-bind:step="1"
          v-model="controlValue"
-/>
+></control>
 ```
 
 **Default value format**
@@ -354,7 +354,7 @@ controlValue: 33,
          name="myPasswordControl"
          type="password"
          v-model="controlValue"
-/>
+></control>
 ```
 
 **Default value format**
@@ -375,7 +375,7 @@ controlValue: 'myVery$ecre+Pa55w0rd',
          type="radio"
          v-bind:options="options"
          v-model="controlValue"
-/>
+></control>
 ```
 
 **Default options format**
@@ -421,7 +421,7 @@ controlValue: 2,
          type="select"
          v-bind:options="options"
          v-model="controlValue"
-/>
+></control>
 ```
 
 **Default options format**
@@ -470,7 +470,7 @@ controlValue: 2,
          type="tag"
          value-field="alpha3Code"
          v-model="controlValue"
-/>
+></control>
 ```
 
 **Default value format**
@@ -497,7 +497,7 @@ controlValue: ['DEU', 'GRC'], // format is given by the format of value-field
          name="myTextControl"
          type="text"
          v-model="controlValue"
-/>
+></control>
 ```
 
 **Default value format**
@@ -517,7 +517,7 @@ controlValue: 'This is a string',
          name="myTextareaControl"
          type="textarea"
          v-model="controlValue"
-/>
+></control>
 ```
 
 **Default value format**
@@ -538,7 +538,7 @@ controlValue: 'This is a very long string.',
          type="toggle"
          v-bind:options="options"
          v-model="controlValue"
-/>
+></control>
 ```
 
 **Default options format**
@@ -566,7 +566,7 @@ controlValue: true,
          name="myUrlControl"
          type="url"
          v-model="controlValue"
-/>
+></control>
 ```
 
 **Default value format**
@@ -586,7 +586,7 @@ controlValue: 'https://gofurther.digital',
 ```
 <data-table v-bind:data="tableData" 
             v-on:sort="sortDataTable"
-/>
+></control>
 ```
 
 ```
@@ -700,7 +700,7 @@ Icons courtesy of [https://feathericons.com](https://feathericons.com).
 **Usage**  
 
 ```
-<icon icon="search" class="is-light-gray has-blue-hover" />
+<icon icon="search" class="is-light-gray has-blue-hover"></icon>
 ```
 
 **Class modifiers**  

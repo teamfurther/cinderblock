@@ -1,6 +1,6 @@
 <template>
     <a class="navigation__item"
-       v-bind:class="{ 'is-active': isActive, 'is-tab': isTab }"
+       v-bind:class="{ 'is-active': isActive, 'is-tab': isTab, 'has-cursor-default': !href}"
        v-bind:href="href"
        v-if="!hasDropdown"
     >

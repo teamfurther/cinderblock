@@ -4,13 +4,14 @@ import Vue from 'vue';
 
 import Pagination from '../src/js/components/Pagination';
 
+// Mock a DOM
+document.body.innerHTML = 'This is a mock DOM';
+
 describe('Pagination', function () {
     const wrapper = mount(Pagination, {
         propsData: {
-            data: {
-                currentPage: 1,
-                pages: 10
-            }
+            currentPage: 1,
+            pages: 10
         }
     });
 
