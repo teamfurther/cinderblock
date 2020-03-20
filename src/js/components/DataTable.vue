@@ -81,9 +81,9 @@
                                          v-bind:is-disabled="action.control.isDisabled"
                                          v-bind:is-invalid="action.control.isInvalid"
                                          v-bind:is-required="action.control.isRequired"
-                                         v-model="controlValues[index]"
+                                         v-model="controlValues[action.control.name]"
                                          v-if="action.control"
-                                         v-on:input="controlValueChanged(index, action)"
+                                         v-on:input="controlValueChanged(action.control.name, action)"
                                 ></control>
                             </template>
                         </td>
@@ -154,8 +154,8 @@
             }
         }
 
-        controlValueChanged(index: number, action: {[key: string]: any}): void {
-            (this.$parent as any)[action.control.method](this.controlValues[index], this.tableData.items[index].values);
+        controlValueChanged(index: string, action: {[key: string]: any}): void {
+            (this.$parent as any)[action.control.method](this.controlValues[action.control.name], this.tableData.items[index].values);
         }
 
         // Props

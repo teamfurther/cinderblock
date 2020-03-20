@@ -633,7 +633,7 @@ data: {
                     control: {
                         "icon": "search",
                         "label": "This is my label",
-                        "name": "myControl",
+                        "name": "myControl", // !!! name must be unique !!!
                         "placeholder": "Start typing",
                         "tooltip": "This is a tooltip right here",
                         "tooltipPosition": "top",
