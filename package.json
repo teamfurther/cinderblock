@@ -43,6 +43,9 @@
     "vue": "^2.6"
   },
   "description": "Cinderblock is a set of Vue components for quickly setting up admin interfaces.",
+  "files": [
+    "dist"
+  ],
   "homepage": "https://github.com/teamfurther/cinderblock#readme",
   "jest": {
     "moduleFileExtensions": [
@@ -85,5 +88,5 @@
     "test": "jest",
     "watch": "npm run development -- --watch"
   },
-  "version": "0.1.2"
+  "version": "0.1.3"
 }

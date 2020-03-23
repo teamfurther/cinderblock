@@ -12,3 +12,6 @@ All notable changes to `@teamfurther/cinderblock` will be documented in this fil
 
 # 0.1.2 - 2020-03-20
 - DataTable: fixed an issue with control value not updating on sort 
+
+# 0.1.3 - 2020-03-23
+- npm to include files in `dist`  
