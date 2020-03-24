@@ -15,3 +15,9 @@ All notable changes to `@teamfurther/cinderblock` will be documented in this fil
 
 # 0.1.3 - 2020-03-23
 - npm to include files in `dist`  
+
+# 0.1.4 - 2020-03-23
+- npm to include files in `src`  
+
+# 0.1.5 - 2020-03-24
+- DataTable: fixed recursive component issue 

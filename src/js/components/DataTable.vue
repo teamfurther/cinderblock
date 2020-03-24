@@ -83,7 +83,7 @@
                                          v-bind:is-required="action.control.isRequired"
                                          v-model="controlValues[action.control.name]"
                                          v-if="action.control"
-                                         v-on:input="controlValueChanged(action.control.name, action)"
+                                         v-on:input="controlValueChanged(action.control.name, index, action)"
                                 ></control>
                             </template>
                         </td>
@@ -109,7 +109,8 @@
         components: {
             Control,
             Icon
-        }
+        },
+        name: 'DataTable'
     })
     export default class DataTable extends Vue {
         // Data
@@ -154,8 +155,8 @@
             }
         }
 
-        controlValueChanged(index: string, action: {[key: string]: any}): void {
-            (this.$parent as any)[action.control.method](this.controlValues[action.control.name], this.tableData.items[index].values);
+        controlValueChanged(index: string, rowIndex: number, action: {[key: string]: any}): void {
+            (this.$parent as any)[action.control.method](this.controlValues[action.control.name], this.tableData.items[rowIndex].values);
         }
 
         // Props
