@@ -1,14 +1,14 @@
 ## Installation
-You can install the package via npm:  
-```npm install @teamfurther/cinderblock --save```  
-or  
+You can install the package via npm:
+```npm install @teamfurther/cinderblock --save```
+or
 ```yarn add @teamfurther/cinderblock```
 
 **Component registration**
-Import component:  
+Import component:
 ```import { ComponentName } from '@teamfurther/cinderblock';```
 
-Next you must register your component:  
+Next you must register your component:
 ```
 …
 components: {
@@ -23,7 +23,7 @@ components: {
 
 ### Alert
 
-**Usage**  
+**Usage**
 
 ```
 <alerts v-bind:alerts="alerts" v-if="alerts"></alerts>
@@ -68,66 +68,66 @@ methods: {
 …
 ```
 
-**Events**  
+**Events**
 
-```alert-closed```
+```alert-closed```\
 ```close-alert```
 
-**Props**  
+**Props**
 
-```alerts``` 
+```alerts```
 
 ---
 
 ### Brand
 
-**Usage**  
+**Usage**
 
 ```
 <brand href="/home">
     <img src="/logo.svg" alt="My brand logo">
-</brand> 
+</brand>
 ```
 
-**Slots**  
-  
-```default```  
+**Slots**
+
+```default```
 
 ---
 
 ### Btn
 
-**Usage**  
- 
+**Usage**
+
 ```
 <btn class="is-block" href="/home" type="success" v-bind:is-loading="isLoading">This is a button</btn>
 <btn is-submit v-bind:is-disabled="isDisabled" v-on:click="doSomething">This is a disabled submit button</btn>
 ```
 
-**Class modifiers**  
+**Class modifiers**
 
-```.is-block``` - Displays a block-level button. Same as using ```is-block``` prop.  
-  
-**Props**  
+```.is-block``` - Displays a block-level button. Same as using ```is-block``` prop.
 
-```href```
-```is-disabled```  
-```is-loading```  
-```is-submit``` - Invalid together with ```href```  
+**Props**
+
+```href```\
+```is-disabled```\
+```is-loading```\
+```is-submit``` - Invalid together with ```href```\
 ```type``` - cancel|default|error|success|warning
 
-**Slots**  
-  
-```default```  
+**Slots**
+
+```default```
 
 ### Control
 
 #### General usage and options
 
-**Usage**  
+**Usage**
 
 ```
-<control 
+<control
          icon="search"
          label="This is my label"
          name="myControl"
@@ -146,25 +146,25 @@ methods: {
 </control>
 ```
 
-**Props**  
+**Props**
 
-```icon``` - The icon to be displayed before control. Works with ```autocomplete```, ```email```, ```file```, ```number```, ```password```, ```select```, ```tag```, ```text``` and ```url```.  
-```is-disabled``` - Disables control.  
-```is-invalid``` - Sets is-invalid class on control. Can be used when validation errors occur.  
-```is-readonly``` - Make control read-only.  
-```label``` - The label displayed before the field.  
-```name``` - The name of the input.  
-```placeholder``` - The input placeholder.  
-```tooltip``` - Display a tooltip icon. When hovered, the text provided appears as a tooltip.  
-```tooltip-position``` - Where to display tooltip relative to tooltip icon. Can take values ```bottom```, ```left```, ```right``` or ```top```.  
+```icon``` - The icon to be displayed before control. Works with ```autocomplete```, ```email```, ```file```, ```number```, ```password```, ```select```, ```tag```, ```text``` and ```url```.\
+```is-disabled``` - Disables control.\
+```is-invalid``` - Sets is-invalid class on control. Can be used when validation errors occur.\
+```is-readonly``` - Make control read-only.\
+```label``` - The label displayed before the field.\
+```name``` - The name of the input.\
+```placeholder``` - The input placeholder.\  
+```tooltip``` - Display a tooltip icon. When hovered, the text provided appears as a tooltip.\
+```tooltip-position``` - Where to display tooltip relative to tooltip icon. Can take values ```bottom```, ```left```, ```right``` or ```top```.
 ```type``` - One of ```autocomplete```, ```checkbox```, ```date```, ```email```, ```file```, ```number```, ```password```, ```radio```, ```select```, ```tag```, ```text```, ```textarea```, ```toggle```, ```url```.
 
 #### Autocomplete
 
-**Usage**  
+**Usage**
 
 ```
-<control 
+<control
          label-field="name"
          name="myAutocompleteControl"
          source-get="https://restcountries.eu/rest/v2/alpha/"
@@ -185,17 +185,17 @@ controlValue: 'DEU', // format is given by the format of value-field
 
 **Props**
 
-```label-field``` - The field from the response JSON or values object that is used as a label for the value.  
-```source-get``` - The API endpoint used to query the model for the default value.    
-```source-search``` - The API endpoint used to query response JSON for the search string. Search string will be appended to the end of the url.  
-```value-field``` - The field from the response JSON or values object that is used a value.  
+```label-field``` - The field from the response JSON or values object that is used as a label for the value. You can specify properties with dot notation. (e.g. ```address.street```).\
+```source-get``` - The API endpoint or the callback method used to query the model for the default value. This is an optional property. If this property is not set, the v-model is used as the default value.\
+```source-search``` - The API endpoint or the callback method used to query response JSON for the search string. Search string will be appended to the end of the url or will be passed to the callback method. The v-model is used as the default value.\
+```value-field``` - The field from the response JSON or values object that is used a value. You can specify properties with dot notation. (e.g. ```address.street```). It's an optional property, if you don't set it, the entire object will be returned.
 
 #### Checkbox
 
-**Usage**  
+**Usage**
 
 ```
-<control 
+<control
          name="myCheckboxControl"
          type="checkbox"
          v-bind:options="options"
@@ -238,10 +238,10 @@ controlValue: [2, 3],
 
 #### Date
 
-**Usage**  
+**Usage**
 
 ```
-<control 
+<control
          name="myDateControl"
          type="date"
          v-bind:date-config="dateConfig"
@@ -249,7 +249,7 @@ controlValue: [2, 3],
 ></control>
 ```
 
-**Date config**  
+**Date config**
 Please refer to: [https://flatpickr.js.org/options/](https://flatpickr.js.org/options/).
 
 E.g.:
@@ -263,7 +263,7 @@ dateConfig: {
 ```
 
 
-**Default value format**  
+**Default value format**
 
 ```
 …
@@ -273,10 +273,10 @@ controlValue: '2020-06-14', // format is give by the Flatpickr date format
 
 #### Email
 
-**Usage**  
+**Usage**
 
 ```
-<control 
+<control
          name="myEmailControl"
          type="number"
          v-model="controlValue"
@@ -293,10 +293,10 @@ controlValue: 'hello@gofurther.digital',
 
 #### File
 
-**Usage**  
+**Usage**
 
 ```
-<control 
+<control
          filename="myCurrentFile.pdf"
          name="myFileControl"
          type="file"
@@ -314,14 +314,14 @@ controlValue: false, // false signals that the file has not changed; null signal
 
 **Props**
 
-```filename``` - The filename for the current file. Will be displayed below input.  
+```filename``` - The filename for the current file. Will be displayed below input.
 
 #### Number
 
-**Usage**  
+**Usage**
 
 ```
-<control 
+<control
          name="myNumberControl"
          type="number"
          v-bind:max="100"
@@ -341,16 +341,16 @@ controlValue: 33,
 
 **Props**
 
-```max```  
-```min```  
-```step``` - Defaults to 1.  
+```max```\
+```min```\
+```step``` - Defaults to 1.
 
 #### Password
 
-**Usage**  
+**Usage**
 
 ```
-<control 
+<control
          name="myPasswordControl"
          type="password"
          v-model="controlValue"
@@ -367,10 +367,10 @@ controlValue: 'myVery$ecre+Pa55w0rd',
 
 #### Radio
 
-**Usage**  
+**Usage**
 
 ```
-<control 
+<control
          name="myRadioControl"
          type="radio"
          v-bind:options="options"
@@ -413,10 +413,10 @@ controlValue: 2,
 
 #### Select
 
-**Usage**  
+**Usage**
 
 ```
-<control 
+<control
          name="mySelectControl"
          type="select"
          v-bind:options="options"
@@ -459,10 +459,10 @@ controlValue: 2,
 
 #### Tag
 
-**Usage**  
+**Usage**
 
 ```
-<control 
+<control
          label-field="name"
          name="myTagControl"
          source-get="https://restcountries.eu/rest/v2/alpha/"
@@ -483,17 +483,17 @@ controlValue: ['DEU', 'GRC'], // format is given by the format of value-field
 
 **Props**
 
-```label-field``` - The field from the response JSON or values object that is used as a label for the value.  
-```source-get``` - The API endpoint used to query the model for the default value.    
-```source-search``` - The API endpoint used to query response JSON for the search string. Search string will be appended to the end of the url.  
-```value-field``` - The field from the response JSON or values object that is used a value.  
+```label-field``` - The field from the response JSON or values object that is used as a label for the value. You can specify properties with dot notation. (e.g. ```address.street```).\
+```source-get``` - The API endpoint or the callback method used to query the model for the default value. This is an optional property. If this property is not set, the v-model is used as the default value.\
+```source-search``` - The API endpoint or the callback method used to query response JSON for the search string. Search string will be appended to the end of the url or will be passed to the callback method. The v-model is used as the default value.\
+```value-field``` - The field from the response JSON or values object that is used a value. You can specify properties with dot notation. (e.g. ```address.street```). It's an optional property, if you don't set it, the entire object will be returned.
 
 #### Text
 
-**Usage**  
+**Usage**
 
 ```
-<control 
+<control
          name="myTextControl"
          type="text"
          v-model="controlValue"
@@ -510,10 +510,10 @@ controlValue: 'This is a string',
 
 #### Textarea
 
-**Usage**  
+**Usage**
 
 ```
-<control 
+<control
          name="myTextareaControl"
          type="textarea"
          v-model="controlValue"
@@ -530,10 +530,10 @@ controlValue: 'This is a very long string.',
 
 #### Toggle
 
-**Usage**  
+**Usage**
 
 ```
-<control 
+<control
          name="myToggleControl"
          type="toggle"
          v-bind:options="options"
@@ -545,7 +545,7 @@ controlValue: 'This is a very long string.',
 
 ```
 …
-options: ['OK', 'Not OK'], // must be null, or contain exactly two values 
+options: ['OK', 'Not OK'], // must be null, or contain exactly two values
 …
 ```
 
@@ -559,10 +559,10 @@ controlValue: true,
 
 #### Url
 
-**Usage**  
+**Usage**
 
 ```
-<control 
+<control
          name="myUrlControl"
          type="url"
          v-model="controlValue"
@@ -581,10 +581,10 @@ controlValue: 'https://gofurther.digital',
 
 ### DataTable
 
-**Usage**  
-  
+**Usage**
+
 ```
-<data-table v-bind:data="tableData" 
+<data-table v-bind:data="tableData"
             v-on:sort="sortDataTable"
 ></control>
 ```
@@ -592,7 +592,7 @@ controlValue: 'https://gofurther.digital',
 ```
 …
 data: {
-    …    
+    …
     tableData: {
         columnAligns: { age: 'center' }, // left, right, center
         columnNames: { id: 'Id', name: 'Name', age: 'Age', country: 'Country' },
@@ -601,10 +601,10 @@ data: {
             {
                 values: { id: 1, name: "Maria", age: "20", country: 'Germany' },
                 actions: [{
-                    class: 'is-blue', // is-red, is-green 
+                    class: 'is-blue', // is-red, is-green
                     icon: 'search',
                     title: 'Details',
-                    url: '/details/1' 
+                    url: '/details/1'
                     // OR
                     // method: 'dataTableAction'
                 }],
@@ -617,14 +617,14 @@ data: {
                         {
                             values: { name: 'Bill', age: 'Age' }
                         }
-                    ]      
+                    ]
                 }
             },
             {
                 values: { id: 2, name: "John", age: "20", country: 'UK' },
                 actions: [{
                     title: 'Details',
-                    method: 'dataTableAction' // dataTableAction: function (item) {}                        
+                    method: 'dataTableAction' // dataTableAction: function (item) {}
                 }]
             },
             {
@@ -641,34 +641,34 @@ data: {
                         "isDisabled": false,
                         "isInvalid": false,
                         "isRequired": true,
-                        "method": "dataTableControlAction", // dataTableControlAction: function (value, item) {}   
-                    }                        
+                        "method": "dataTableControlAction", // dataTableControlAction: function (value, item) {}
+                    }
                 }]
             },
             {
                 values: { id: 4, name: "Chris", age: "20", country: 'UK' },
                 actions: [{
                     title: 'Details',
-                    url: '/details/4'                        
+                    url: '/details/4'
                 }]
             },
             {
                 values: { id: 5, name: "Helen", age: "20", country: 'UK' },
                 actions: [{
                     title: 'Details',
-                    url: '/details/5'                        
+                    url: '/details/5'
                 }]
-            }                
+            }
         ],
         showActions: true, // default value is false (show actions only on hover)
-        sortableColumns: ['id', 'name', 'age', 'country']            
+        sortableColumns: ['id', 'name', 'age', 'country']
     }
     …
 }
 …
 ```
 
-**Props**  
+**Props**
 
 ```data```
 
@@ -676,7 +676,7 @@ data: {
 
 ### Foot
 
-**Usage**  
+**Usage**
 
 ```
 <foot>
@@ -685,9 +685,9 @@ data: {
 </foot>
 ```
 
-**Slots**  
-  
-```default```  
+**Slots**
+
+```default```
 
 ---
 
@@ -696,24 +696,24 @@ data: {
 **Usage**
 
 Icons courtesy of [https://feathericons.com](https://feathericons.com).
-  
-**Usage**  
+
+**Usage**
 
 ```
 <icon icon="search" class="is-light-gray has-blue-hover"></icon>
 ```
 
-**Class modifiers**  
-  
-```is-blue```, ```is-green```, ```is-light```, ```is-lighter```, ```is-red``` - Color modifiers  
-```has-blue-hover```, ```has-green-hover```, ```has-light-hover```, ```has-lighter-hover```, ```has-red-hover``` - Hover modifiers    
-```is-smaller```, ```is-small```, ```is-large```, ```is-larger``` - Size modifiers  
+**Class modifiers**
+
+```is-blue```, ```is-green```, ```is-light```, ```is-lighter```, ```is-red``` - Color modifiers\
+```has-blue-hover```, ```has-green-hover```, ```has-light-hover```, ```has-lighter-hover```, ```has-red-hover``` - Hover modifiers\
+```is-smaller```, ```is-small```, ```is-large```, ```is-larger``` - Size modifiers
 
 ---
 
 ### Modal
 
-**Usage**  
+**Usage**
 
 ```
 <modal class="is-narrow" title="My modal"
@@ -732,61 +732,61 @@ Icons courtesy of [https://feathericons.com](https://feathericons.com).
 
 !!! Always put the modal tag outside panel tags
 
-**Class modifiers**  
+**Class modifiers**
 
-```.is-narrow``` - Displays a narrower modal.  
-```.is-wide``` - Displays a wider modal.  
+```.is-narrow``` - Displays a narrower modal.
+```.is-wide``` - Displays a wider modal.
 
-**Events**  
+**Events**
 
 ```close-modal```
-  
-**Props**  
 
-```is-close-disabled``` - If true, modal cannot be closed.
-```is-open```
-```slot-props``` 
-```title``` - This prop only works when ```header``` slot is not provided. 
+**Props**
 
-**Slots**  
+```is-close-disabled``` - If true, modal cannot be closed.\
+```is-open```\
+```slot-props```\
+```title``` - This prop only works when ```header``` slot is not provided.
 
-```header``` - Overrides the default modal header.  
-```body```  
-```footer```  
+**Slots**
+
+```header``` - Overrides the default modal header.\
+```body```\
+```footer```
 
 ---
 
 ### Navbar
 
-**Usage**  
+**Usage**
 
 
 ```
 <navbar class="is-fixed">
   <brand href="/home">
       <img src="/logo.svg" alt="My brand logo">
-  </brand> 
+  </brand>
   <navigation>
       <navigation-item href="/link-1" is-active is-tab>Link 1</navigation-item>
       <navigation-item href="/link-2" is-tab>Link 2</navigation-item>
       <navigation-item href="/link-3" is-tab>Link 3</navigation-item>
-  </navigation>  
+  </navigation>
 </navbar>
 ```
 
-**Class modifiers**  
+**Class modifiers**
 
-```.is-fixed``` - You can fix the navbar to the top of the page.  
+```.is-fixed``` - You can fix the navbar to the top of the page.
 
-**Slots**  
-  
+**Slots**
+
 ```default```
 
 ---
 
 ### Navigation
 
-**Usage**  
+**Usage**
 
 ```
 <navigation has-burger>
@@ -799,25 +799,25 @@ Icons courtesy of [https://feathericons.com](https://feathericons.com).
             <navigation-item href="/dropdown-link-1">Dropdown link 1</navigation-item>
             <navigation-item href="/dropdown-link-2">Dropdown link 2</navigation-item>
             <navigation-item href="/dropdown-link-3">Dropdown link 3</navigation-item>
-        </template>                    
+        </template>
     </navigation-item>
     <navigation-item href="/link-4" is-tab>Link 4</navigation-item>
 </navigation>
 ```
 
-**Props**  
+**Props**
 
-```has-burger``` - If you set this prop a hamburger menu appears on mobile.  
+```has-burger``` - If you set this prop a hamburger menu appears on mobile.
 
-**Slots**  
-  
+**Slots**
+
 ```default```
 
 ---
 
 ### NavigationItem
 
-**Usage**  
+**Usage**
 
 ```
 <navigation-item href="/link-1" is-active is-tab>Link 1</navigation-item>
@@ -827,20 +827,20 @@ Icons courtesy of [https://feathericons.com](https://feathericons.com).
         <navigation-item href="/dropdown-link-1">Dropdown link 1</navigation-item>
         <navigation-item href="/dropdown-link-2">Dropdown link 2</navigation-item>
         <navigation-item href="/dropdown-link-3">Dropdown link 3</navigation-item>
-    </template>                    
+    </template>
 </navigation-item>
 
 ```
 
-**Props**  
+**Props**
 
-```has-dropdown``` - Set this prop if you want to use dropdown.
-```is-active``` - Use this prop to indicate the active state.
-```is-arrowless``` - Dropdown without arrow
+```has-dropdown``` - Set this prop if you want to use dropdown.\
+```is-active``` - Use this prop to indicate the active state.\
+```is-arrowless``` - Dropdown without arrow\
 ```is-tab``` - Change the style of the navigation item to tab style.
 
-**Slots**  
-  
+**Slots**
+
 ```default```
 ```dropdown```
 
@@ -848,7 +848,7 @@ Icons courtesy of [https://feathericons.com](https://feathericons.com).
 
 ### Paging
 
-**Usage**  
+**Usage**
 
 ```
 <pagination v-bind:current-page="1" v-bind:pages="10" v-on:update-current-page="pagination"></pagination>
@@ -856,24 +856,24 @@ Icons courtesy of [https://feathericons.com](https://feathericons.com).
 <pagination v-bind:current-page="1" v-bind:pages="10" v-on:update-current-page="pagination">Custom</pagination>
 ```
 
-**Events**  
+**Events**
 
 ```update-current-page```
 
-**Props**  
+**Props**
 
-```current-page```  
+```current-page```
 ```pages``` - Total number of pages
 
-**Slots**  
+**Slots**
 
-```default```  
+```default```
 
 ---
 
 ### Panel
 
-**Usage**  
+**Usage**
 
 ```
 <panel class="is-narrow" title="My modal">
@@ -883,27 +883,28 @@ Icons courtesy of [https://feathericons.com](https://feathericons.com).
 </panel>
 ```
 
-**Class modifiers**  
+**Class modifiers**
 
-```.is-narrow``` - Displays a narrower panel.  
-  
-**Props**  
+```.is-narrow``` - Displays a narrower panel.
 
-```title``` - This prop only works when ```topleft``` slot is not provided. 
+**Props**
 
-**Slots**  
+```slot-props```\
+```title``` - This prop only works when ```topleft``` slot is not provided.
 
-```topleft``` - Overrides the default panel header.  
-```topright```  
-```body```  
-```bottomleft```  
-```bottomright```  
+**Slots**
+
+```topleft``` - Overrides the default panel header.\
+```topright```\
+```body```\
+```bottomleft```\
+```bottomright```
 
 ---
 
 ### Tooltip
 
-**Usage**  
+**Usage**
 
 ```
 <tooltip class="is-at-top" v-bind:is-open="isOpen">
@@ -911,20 +912,20 @@ Icons courtesy of [https://feathericons.com](https://feathericons.com).
 </tooltip>
 ```
 
-!!! The parent element of <tooltip> must always have relative or absolute positioning 
+!!! The parent element of <tooltip> must always have relative or absolute positioning
 
-**Class modifiers**  
+**Class modifiers**
 
-```.is-at-bottom``` - Default  
-```.is-at-left```  
-```.is-at-right```  
-```.is-at-top```  
-  
-**Props**  
+```.is-at-bottom``` - Default\
+```.is-at-left```\
+```.is-at-right```\
+```.is-at-top```
 
-```isOpen``` 
+**Props**
 
-**Slots**  
+```isOpen```
+
+**Slots**
 
 ```default```
 
@@ -932,18 +933,18 @@ Icons courtesy of [https://feathericons.com](https://feathericons.com).
 
 ### TooltipIcon
 
-**Usage**  
+**Usage**
 
 ```
 <tooltip-icon position="left">
     This is a tooltip
 </tooltip-icon>
-``` 
-  
-**Props**  
+```
 
-```position``` - bottom, left, right or top 
+**Props**
 
-**Slots**  
+```position``` - bottom, left, right or top
+
+**Slots**
 
 ```default```

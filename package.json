@@ -20,27 +20,27 @@
   ],
   "dependencies": {},
   "devDependencies": {
-    "@vue/test-utils": "^1.0.0-beta.32",
+    "@vue/test-utils": "^1.0.3",
     "babel-core": "^6.26.3",
     "babel-jest": "^24.9.0",
     "babel-preset-env": "^1.7.0",
     "cross-env": "^6.0.3",
     "debounce": "^1.2",
-    "fibers": "^4.0.2",
+    "fibers": "^4.0.3",
     "flatpickr": "^4.6",
     "jest": "^24.9.0",
-    "laravel-mix": "^5.0.1",
-    "node-sass": "^4.13.1",
-    "sass": "^1.24.4",
-    "sass-loader": "^8.0.1",
-    "sass-resources-loader": "^2.0.1",
+    "laravel-mix": "^5.0.4",
+    "node-sass": "^4.14.1",
+    "sass": "^1.26.8",
+    "sass-loader": "^8.0.2",
+    "sass-resources-loader": "^2.0.3",
     "ts-jest": "^24.3.0",
-    "ts-loader": "^6.2.1",
-    "typescript": "^3.7.4",
+    "ts-loader": "^6.2.2",
+    "typescript": "^3.9.5",
+    "vue": "^2.6",
     "vue-jest": "^3.0.5",
-    "vue-property-decorator": "^8.3.0",
-    "vue-template-compiler": "^2.6.11",
-    "vue": "^2.6"
+    "vue-property-decorator": "^8.4.2",
+    "vue-template-compiler": "^2.6.11"
   },
   "description": "Cinderblock is a set of Vue components for quickly setting up admin interfaces.",
   "files": [
@@ -89,5 +89,5 @@
     "test": "jest",
     "watch": "npm run development -- --watch"
   },
-  "version": "0.1.5"
+  "version": "0.1.6"
 }

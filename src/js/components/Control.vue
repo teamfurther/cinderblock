@@ -35,7 +35,7 @@
                 v-if="searchResults.length"
             >
                 <li v-for="searchResult in searchResults">
-                    <a v-on:click="selectValue(searchResult)">{{ searchResult[labelField] }}</a>
+                    <a v-on:click="selectValue(searchResult)" v-html="fetchObject(searchResult, labelField)"></a>
                 </li>
             </ul>
         </div>
@@ -201,7 +201,7 @@
                 v-if="searchResults.length"
             >
                 <li v-for="searchResult in searchResults">
-                    <a v-on:click="selectValue(searchResult)">{{ searchResult[labelField] }}</a>
+                    <a v-on:click="selectValue(searchResult)" v-html="fetchObject(searchResult, labelField)"></a>
                 </li>
             </ul>
         </div>
@@ -314,6 +314,35 @@
             this.$emit('input', (<HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement>e.target).value);
         }
 
+        private fetchArrayObject(arr: any[], prop: string): any {
+            let result = [];
+            for (let i = 0; i < arr.length; i++ ) {
+                let obj = this.fetchObject(arr[i], prop)
+                if (obj) {
+                    result.push(obj);
+                }
+            }
+
+            return result;
+        }
+
+        private fetchObject(obj: any, prop: string): any {
+            if (typeof obj === 'undefined') {
+                return false;
+            }
+
+            let index = prop.indexOf('.');
+
+            if (index > -1) {
+                return this.fetchObject(
+                    obj[prop.substring(0, index)],
+                    prop.substr(index + 1)
+                );
+            }
+
+            return obj[prop];
+        }
+
         private removeFile() {
             this.selectedFilename = '';
             this.selectedValue = null;
@@ -323,14 +352,27 @@
 
         private search(searchValue: any) {
             if (searchValue !== '' && searchValue.length > 1) {
-                fetch(this.sourceSearch + searchValue)
-                    .then(response => response.json())
-                    .then(data => {
+                if (this.sourceSearch !== '' && typeof this.sourceSearch === 'string') {
+                    fetch(this.sourceSearch + searchValue)
+                        .then(response => response.json())
+                        .then(data => {
+                            this.searchResults = data;
+                        })
+                        .catch(error => {
+                            console.error('[Cinderblock error]: There was an error retrieving autocomplete control values');
+                        });
+                } else if (this.sourceSearch !== '' && typeof this.sourceSearch === 'function')  {
+                    let data = this.sourceSearch(searchValue);
+
+                    if (Promise.resolve(data) == data) { // check if Promise
+                        data.then((data: any) => {
+                            this.searchResults = data;
+                        })
+
+                    } else {
                         this.searchResults = data;
-                    })
-                    .catch(error => {
-                        console.error('[Cinderblock error]: There was an error retrieving autocomplete control values');
-                    });
+                    }
+                }
             } else {
                 this.searchResults = [];
             }
@@ -341,16 +383,16 @@
 
             switch (this.type) {
                 case 'autocomplete':
-                    this.searchString = value[this.labelField];
-                    this.selectedValue = value[this.valueField];
+                    this.searchString = this.fetchObject(value, this.labelField) || '';
+                    this.selectedValue = this.fetchObject(value, this.valueField) || value;
 
                     this.$emit('input', this.selectedValue);
 
                     break;
                 case 'tag':
                     this.searchString = '';
-                    this.selectedValues.push(value[this.valueField]);
-                    this.selectedTags.push(value[this.labelField]);
+                    this.selectedValues = this.selectedValues.concat([this.fetchObject(value, this.valueField) || value]);
+                    this.selectedTags = this.selectedTags.concat([this.fetchObject(value, this.labelField)]);
 
                     this.$emit('input', this.selectedValues);
             }
@@ -380,16 +422,31 @@
             switch (this.type) {
                 case 'autocomplete':
                     this.selectedValue = this.value;
-
                     if (this.labelField !== this.valueField) {
-                        fetch(this.sourceGet + this.selectedValue)
-                            .then(response => response.json())
-                            .then(data => {
-                                this.searchString = data[this.labelField];
-                            })
-                            .catch(error => {
-                                console.error('[Cinderblock error]: There was an error retrieving autocomplete control default value');
-                            });
+                        if (this.sourceGet !== '' && typeof this.sourceGet === 'string') {
+                            fetch(this.sourceGet + this.selectedValue)
+                                .then(response => response.json())
+                                .then(data => {
+                                    this.searchString = this.fetchObject(data, this.labelField) || '';
+                                })
+                                .catch(error => {
+                                    console.error('[Cinderblock error]: There was an error retrieving autocomplete control default value');
+                                });
+                        } else if (this.sourceGet !== '' && typeof this.sourceGet === 'function')  {
+                            let data = this.sourceGet(this.selectedValue);
+
+                            if (Promise.resolve(data) == data) { // check if Promise
+                                data.then((data: any) => {
+                                    this.searchString = this.fetchObject(data, this.labelField) || '';
+                                })
+                            } else if (data) {
+                                this.searchString = this.fetchObject(data, this.labelField) || '';
+                            } else {
+                                this.searchString = '';
+                            }
+                        } else {
+                            this.searchString = this.fetchObject(this.value, this.labelField) || '';
+                        }
                     } else {
                         this.searchString = this.selectedValue;
                     }
@@ -418,16 +475,30 @@
                     this.selectedValues = this.value;
 
                     if (this.labelField !== this.valueField) {
-                        this.selectedValues.forEach((value) => {
-                            fetch(this.sourceGet + value)
-                                .then(response => response.json())
-                                .then(data => {
-                                    this.selectedTags.push(data[this.labelField]);
+                        if (this.sourceGet !== '' && typeof this.sourceGet === 'string') {
+                            this.selectedValues.forEach((value) => {
+                                fetch(this.sourceGet + value)
+                                    .then(response => response.json())
+                                    .then(data => {
+                                        this.selectedTags = this.selectedTags.concat(this.fetchArrayObject(data, this.labelField));
+                                    })
+                                    .catch(error => {
+                                        console.error('[Cinderblock error]: There was an error retrieving autocomplete control default value');
+                                    });
+                            });
+                        } if (this.sourceGet !== '' && typeof this.sourceGet === 'function') {
+                            let data = this.sourceGet(this.selectedValue);
+
+                            if (Promise.resolve(data) == data) { // check if Promise
+                                data.then((data: any) => {
+                                    this.selectedTags = this.selectedTags.concat(this.fetchArrayObject(data, this.labelField));
                                 })
-                                .catch(error => {
-                                    console.error('[Cinderblock error]: There was an error retrieving autocomplete control default value');
-                                });
-                        });
+                            } else if (data) {
+                                this.selectedTags = this.selectedTags.concat(this.fetchArrayObject(data, this.labelField));
+                            }
+                        } else {
+                            this.selectedTags = this.selectedTags.concat(this.fetchArrayObject(this.value, this.labelField));
+                        }
                     } else {
                         this.selectedTags = this.value;
                     }
@@ -460,16 +531,8 @@
                         console.error('[Cinderblock warn]: Missing required prop for autocomplete control: "labelField"');
                     }
 
-                    if (this.sourceGet === '') {
-                        console.error('[Cinderblock warn]: Missing required prop for autocomplete control: "sourceGet"');
-                    }
-
                     if (this.sourceSearch === '') {
                         console.error('[Cinderblock warn]: Missing required prop for autocomplete control: "sourceSearch"');
-                    }
-
-                    if (this.valueField === '') {
-                        console.error('[Cinderblock warn]: Missing required prop for autocomplete control: "valueField"');
                     }
 
                     break;
@@ -572,13 +635,13 @@
 
         @Prop({
             default: '',
-            type: String
-        }) sourceGet!: string;
+            type: [Function, String]
+        }) sourceGet!: ((param: any) => any) | string;
 
         @Prop({
             default: '',
-            type: String
-        }) sourceSearch!: string;
+            type: [Function, String]
+        }) sourceSearch!: ((param: any) => any) | string;
 
         @Prop({
             default: '',
