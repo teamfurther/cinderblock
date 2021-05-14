@@ -5,13 +5,12 @@ import Vue from 'vue';
 import Navigation from '../src/js/components/Navigation';
 
 describe('Navigation', function () {
-
     test('is a Vue instance', function () {
         // set-up
         const wrapper = mount(Navigation);
 
         // test
-        expect(wrapper.isVueInstance()).toBe(true);
+        expect(wrapper).toBeTruthy();
     });
 
     test('body is set correctly', function () {

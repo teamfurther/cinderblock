@@ -5,13 +5,12 @@ import Vue from 'vue';
 import Foot from '../src/js/components/Foot';
 
 describe('Foot', function () {
-
     test('is a Vue instance', function () {
         // set-up
         const wrapper = mount(Foot);
 
         // test
-        expect(wrapper.isVueInstance()).toBe(true);
+        expect(wrapper).toBeTruthy();
     });
 
     test('body is set correctly', function () {

@@ -13,12 +13,12 @@ describe('Modal', function () {
 
     test('is a Vue instance', function () {
         // test
-        expect(wrapper.isVueInstance()).toBe(true);
+        expect(wrapper).toBeTruthy();
     });
 
     test('is hidden by default', function () {
         // test
-        expect(wrapper.is('.is-open')).toBe(false);
+        expect(wrapper.classes('is-open')).toBe(false);
     });
 
     test('title is set correctly', function () {
@@ -89,7 +89,7 @@ describe('Modal', function () {
 
         Vue.nextTick(function () {
             // test
-            expect(wrapper.is('.is-open')).toBe(true);
+            expect(wrapper.classes('is-open')).toBe(true);
         });
     });
 
@@ -101,7 +101,7 @@ describe('Modal', function () {
 
         Vue.nextTick(function () {
             // test
-            expect(wrapper.is('.is-open')).toBe(false);
+            expect(wrapper.classes('is-open')).toBe(false);
         });
     });
 

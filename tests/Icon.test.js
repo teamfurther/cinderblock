@@ -16,6 +16,6 @@ describe('Icon', function () {
 
     test('is a Vue instance', function () {
         // test
-        expect(wrapper.isVueInstance()).toBe(true);
+        expect(wrapper).toBeTruthy();
     });
 });

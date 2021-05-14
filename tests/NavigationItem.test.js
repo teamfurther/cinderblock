@@ -19,7 +19,7 @@ describe('NavigationItem', function () {
 
     test('is a Vue instance', function () {
         // test
-        expect(wrapper.isVueInstance()).toBe(true);
+        expect(wrapper).toBeTruthy();
     });
 
     test('body is set correctly', function () {
@@ -35,14 +35,14 @@ describe('NavigationItem', function () {
     test('is arrowless works', function () {
         Vue.nextTick(function () {
             // test
-            expect(wrapper.contains('.is-arrowless')).toBe(true);
+            expect(wrapper.find('.is-arrowless').exists()).toBe(true);
         });
     });
 
     test('is tab works', function () {
         Vue.nextTick(function () {
             // test
-            expect(wrapper.contains('.is-tab')).toBe(true);
+            expect(wrapper.find('.is-tab').exists()).toBe(true);
         });
     });
 });

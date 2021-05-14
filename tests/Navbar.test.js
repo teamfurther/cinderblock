@@ -5,13 +5,12 @@ import Vue from 'vue';
 import Navbar from '../src/js/components/Navbar';
 
 describe('Navbar', function () {
-
     test('is a Vue instance', function () {
         // set-up
         const wrapper = mount(Navbar);
 
         // test
-        expect(wrapper.isVueInstance()).toBe(true);
+        expect(wrapper).toBeTruthy();
     });
 
     test('body is set correctly', function () {

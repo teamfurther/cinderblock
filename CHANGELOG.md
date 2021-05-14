@@ -26,3 +26,13 @@ All notable changes to `@teamfurther/cinderblock` will be documented in this fil
 - Control: autocomplete and tag is now able to accept callback methods as source
 - Control: autocomplete and tag is now able to handle nested objects as label or value
 - Panel: added slotProps
+
+# 0.1.7 - 2020-06-05
+- Minor fixes
+
+# 0.1.8 - 2020-06-05
+- Minor fixes
+
+# 0.1.9 - 2021-05-14
+- Updated dependencies
+- Refactored tests

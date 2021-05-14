@@ -10,13 +10,12 @@ describe('Btn', function () {
 
     test('is a Vue instance', function () {
         // test
-        expect(wrapper.isVueInstance()).toBe(true);
+        expect(wrapper).toBeTruthy();
     });
 
     test('is a button if no `href` is set', function () {
         // test
-        expect(wrapper.is('button')).toBe(true);
-        expect(wrapper.is('a')).toBe(false);
+        expect(wrapper.element.tagName).toBe('BUTTON');
     });
 
     test('is a link if `href` is set', function () {
@@ -27,8 +26,7 @@ describe('Btn', function () {
 
         // test
         Vue.nextTick(function () {
-            expect(wrapper.is('button')).toBe(false);
-            expect(wrapper.is('a')).toBe(true);
+            expect(wrapper.element.tagName).toBe('A');
         });
     });
 

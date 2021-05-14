@@ -18,7 +18,7 @@ describe('Alerts', function () {
 
     test('is a Vue instance', function () {
         // test
-        expect(wrapper.isVueInstance()).toBe(true);
+        expect(wrapper).toBeTruthy();
     });
 });
 
@@ -32,7 +32,7 @@ describe('Alert', function () {
 
     test('is a Vue instance', function () {
         // test
-        expect(wrapper.isVueInstance()).toBe(true);
+        expect(wrapper).toBeTruthy();
     });
 
     test('title is set correctly', function () {

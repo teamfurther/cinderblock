@@ -10,7 +10,7 @@ describe('Brand', function () {
 
     test('is a Vue instance', function () {
         // test
-        expect(wrapper.isVueInstance()).toBe(true);
+        expect(wrapper).toBeTruthy();
     });
 
     test('body is set correctly', function () {

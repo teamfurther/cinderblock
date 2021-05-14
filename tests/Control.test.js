@@ -24,24 +24,24 @@ describe('Control', function () {
 
     test('is a Vue instance', function () {
         // test
-        expect(wrapper.isVueInstance()).toBe(true);
+        expect(wrapper).toBeTruthy();
     });
 
     test('icon is set correctly', function () {
         // test
-        expect(wrapper.contains('svg.icon')).toBe(true);
+        expect(wrapper.find('svg.icon').exists()).toBe(true);
         expect(wrapper.html()).toContain('<use xlink:href="#icon-' + wrapper.props('icon') + '">');
     });
 
     test('label is set correctly', function () {
         // test
-        expect(wrapper.contains('label')).toBe(true);
+        expect(wrapper.find('label').exists()).toBe(true);
         expect(wrapper.html()).toContain(wrapper.props('label'));
     });
 
     test('placeholder is set correctly', function () {
         // test
-        expect(wrapper.contains('input')).toBe(true);
+        expect(wrapper.find('input').exists()).toBe(true);
         expect(wrapper.html()).toContain(wrapper.props('placeholder'));
     });
 
@@ -63,7 +63,7 @@ describe('Control', function () {
 
         Vue.nextTick(function () {
             // test
-            expect(wrapper.contains('input:disabled')).toBe(true);
+            expect(wrapper.find('input:disabled').exists()).toBe(true);
         });
     });
 
@@ -75,7 +75,7 @@ describe('Control', function () {
 
         Vue.nextTick(function () {
             // test
-            expect(wrapper.is('.is-invalid')).toBe(true);
+            expect(wrapper.classes('is-invalid')).toBe(true);
         });
     });
 
@@ -87,7 +87,7 @@ describe('Control', function () {
 
         Vue.nextTick(function () {
             // test
-            expect(wrapper.contains('input:read-only')).toBe(true);
+            expect(wrapper.find('input:read-only').exists()).toBe(true);
         });
     });
 
