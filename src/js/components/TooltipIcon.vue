@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts">
-    import Tooltip from './Tooltip';
+    import Tooltip from './Tooltip.vue';
 
     import { Component, Prop, Vue } from 'vue-property-decorator';
 

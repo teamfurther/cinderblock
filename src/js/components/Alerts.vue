@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts">
-    import Alert from './Alert';
+    import Alert from './Alert.vue';
 
     import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator'
 

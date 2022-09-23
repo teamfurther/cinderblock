@@ -1,4 +1,4 @@
-let mix = require('laravel-mix');
+const mix = require('laravel-mix');
 
 /*
  |--------------------------------------------------------------------------
@@ -11,12 +11,15 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.ts('src/js/index.ts', 'dist/js').sourceMaps()
+mix.ts('src/js/index.ts', 'dist/js')
+    .vue({
+        extractStyles: true,
+        globalStyles: 'src/scss/global.scss'
+    })
     .setPublicPath('./dist');
 
 mix.options({
-    extractVueStyles: true,
-    globalVueStyles: 'src/scss/global.scss'
+    uglify: false
 });
 
 mix.webpackConfig({

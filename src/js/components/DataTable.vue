@@ -100,8 +100,8 @@
 </template>
 
 <script lang="ts">
-    import Control from './Control';
-    import Icon from './Icon';
+    import Control from './Control.vue';
+    import Icon from './Icon.vue';
 
     import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator';
 

@@ -5,14 +5,14 @@ import Control from './components/Control.vue';
 import DataTable from './components/DataTable.vue';
 import Foot from './components/Foot.vue';
 import Icon from './components/Icon.vue';
-import Modal from './components/Modal';
-import Navbar from './components/Navbar';
-import Navigation from './components/Navigation';
-import NavigationItem from './components/NavigationItem';
-import Pagination from './components/Pagination';
-import Panel from './components/Panel';
-import Tooltip from './components/Tooltip';
-import TooltipIcon from './components/TooltipIcon';
+import Modal from './components/Modal.vue';
+import Navbar from './components/Navbar.vue';
+import Navigation from './components/Navigation.vue';
+import NavigationItem from './components/NavigationItem.vue';
+import Pagination from './components/Pagination.vue';
+import Panel from './components/Panel.vue';
+import Tooltip from './components/Tooltip.vue';
+import TooltipIcon from './components/TooltipIcon.vue';
 
 
 export default {

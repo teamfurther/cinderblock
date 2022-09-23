@@ -264,8 +264,8 @@
 </template>
 
 <script lang="ts">
-    import Icon from './Icon';
-    import TooltipIcon from './TooltipIcon';
+    import Icon from './Icon.vue';
+    import TooltipIcon from './TooltipIcon.vue';
 
     const debounce = require('debounce');
     import flatpickr from 'flatpickr';
