@@ -78,9 +78,9 @@
     "url": "https://github.com/teamfurther/cinderblock"
   },
   "scripts": {
-    "build": "rm -rf dist && mix",
-    "dev": "mix",
+    "build": "rm -rf dist && npx mix",
+    "dev": "npx mix",
     "test": "jest"
   },
-  "version": "0.1.10"
+  "version": "0.1.11"
 }

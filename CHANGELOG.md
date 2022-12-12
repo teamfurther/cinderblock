@@ -36,3 +36,11 @@ All notable changes to `@teamfurther/cinderblock` will be documented in this fil
 # 0.1.9 - 2021-05-14
 - Updated dependencies
 - Refactored tests
+
+# 0.1.10 - 2022-09-23
+- https://github.com/teamfurther/cinderblock/issues/6
+- https://github.com/teamfurther/cinderblock/issues/19
+- https://github.com/teamfurther/cinderblock/issues/25
+
+# 0.1.11 - 2022-12-12
+- Minor fixes
