@@ -1,0 +1,29 @@
+.dp__theme_light {
+    --dp-background-color: #ffffff;
+    --dp-text-color: theme('colors.slate.800');
+    --dp-hover-color: theme('colors.slate.100');
+    --dp-hover-text-color: theme('colors.slate.800');
+    --dp-hover-icon-color: theme('colors.slate.400');
+    --dp-primary-color: theme('colors.highlight');
+    --dp-primary-text-color: #ffffff;
+    --dp-secondary-color: theme('colors.slate.300');
+    --dp-border-color: theme('colors.slate.300');
+    --dp-menu-border-color: theme('colors.slate.300');
+    --dp-border-color-hover: theme('colors.slate.300');
+    --dp-disabled-color: theme('colors.slate.200');
+    --dp-scroll-bar-background: theme('colors.slate.100');
+    --dp-scroll-bar-color: theme('colors.slate.300');
+    --dp-success-color: theme('colors.success');
+    --dp-success-color-disabled: rgba(theme('colors.success'), .3);
+    --dp-icon-color: theme('colors.slate.400');
+    --dp-danger-color: theme('colors.error');
+    --dp-highlight-color: theme('colors.highlight');
+}
+
+.dp__action {
+    font-weight: 500;
+}
+
+.dp__menu {
+    font-size: 14px;
+}

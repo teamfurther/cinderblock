@@ -19,27 +19,23 @@
     }
   ],
   "devDependencies": {
-    "@babel/core": "^7.19",
-    "@vue/test-utils": "^1.3",
-    "@vue/vue2-jest": "^29.1.0",
-    "babel-jest": "^29.0",
+    "@babel/core": "^7.20",
+    "@vitejs/plugin-vue": "^4.0",
+    "@vue/test-utils": "^2.2",
+    "@vue/vue3-jest": "^29.2",
+    "@vuepic/vue-datepicker": "^3.6",
+    "babel-jest": "^29.3",
     "debounce": "^1.2",
-    "flatpickr": "^4.6",
-    "jest": "^29.0",
-    "laravel-mix": "^6.0",
-    "node-sass": "^7.0",
-    "sass": "^1.55",
-    "sass-loader": "^13.0",
-    "sass-resources-loader": "^2.2",
+    "jest": "^29.3",
+    "sass": "^1.57",
+    "tailwindcss": "^3.2",
     "ts-jest": "^29.0",
-    "ts-loader": "^9.4",
-    "typescript": "^4.8",
-    "vue": "^2.7",
-    "vue-loader": "^15.9",
-    "vue-property-decorator": "^9.1",
-    "vue-template-compiler": "^2.7"
+    "typescript": "^4.9",
+    "vite": "^4.0",
+    "vue": "^3.2",
+    "vue-tsc": "^1.0"
   },
-  "description": "Cinderblock is a set of Vue components for quickly setting up admin interfaces.",
+  "description": "Cinderblock is a set of Vue and Tailwind components for quickly setting up admin interfaces.",
   "files": [
     "dist",
     "src"
@@ -62,25 +58,26 @@
     "admin",
     "boilerplate",
     "framework",
+    "Tailwind",
     "Vue",
-    "VueJS",
-    "Vue2"
+    "VueJS"
   ],
   "license": "MIT",
-  "main": "dist/js/index.js",
+  "main": "dist/cinderblock.mjs",
   "peerDependencies": {
+    "@vuepic/vue-datepicker": "^3.6",
     "debounce": "^1.2",
-    "flatpickr": "^4.6",
-    "vue": "^2.7"
+    "tailwindcss": "^3.2",
+    "vue": "^3.2"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/teamfurther/cinderblock"
   },
   "scripts": {
-    "build": "rm -rf dist && npx mix",
-    "dev": "npx mix",
+    "build": "rm -rf dist && vue-tsc && vite build",
+    "dev": "vite",
     "test": "jest"
   },
-  "version": "0.1.11"
+  "version": "1.0.0"
 }

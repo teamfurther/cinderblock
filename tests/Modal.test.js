@@ -105,21 +105,21 @@ describe('Modal', function () {
         });
     });
 
-    test('emits `close-modal` when X icon is clicked', function () {
+    test('emits `closeModal` when X icon is clicked', function () {
         // set-up
         const xIcon = wrapper.find('.modal__close');
         xIcon.trigger('click');
 
         // test
-        expect(wrapper.emitted('close-modal')).toBeTruthy();
+        expect(wrapper.emitted('closeModal')).toBeTruthy();
     });
 
-    test('emits `close-modal` when backdrop is clicked', function () {
+    test('emits `closeModal` when backdrop is clicked', function () {
         // set-up
         const xIcon = wrapper.find('.modal__backdrop');
         xIcon.trigger('click');
 
         // test
-        expect(wrapper.emitted('close-modal')).toBeTruthy();
+        expect(wrapper.emitted('closeModal')).toBeTruthy();
     });
 });
