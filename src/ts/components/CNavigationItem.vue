@@ -1,6 +1,6 @@
 <template>
-    <component class="c-navigation__item border-b border-b-slate-200 cursor-pointer hover:bg-slate-50 last:border-b-0 lg:border-b-0 lg:hover:bg-transparent lg:text-sm p-2 text-slate-800"
-       v-bind:class="{ 'lg:border-b-highlight text-highlight': active }"
+    <component class="c-navigation__item border-b border-b-slate-200 cursor-pointer hover:bg-slate-50 last:border-b-0 lg:border-b-0 lg:hover:bg-transparent lg:text-sm p-2"
+       v-bind:class="{ 'text-highlight': active, 'text-slate-800': !active }"
        v-bind:href="!router ? to : null"
        v-bind:is="type"
        v-bind:to="router ? to : null"
@@ -8,11 +8,11 @@
     >
         <slot></slot>
     </component>
-    <div class="c-navigation__item cursor-pointer group lg:hover:bg-transparent lg:text-sm p-2 relative text-slate-800"
+    <div class="c-navigation__item cursor-pointer group lg:hover:bg-transparent lg:text-sm p-2 relative"
          v-else
     >
         <component
-           v-bind:class="{ 'lg:border-b-highlight text-highlight': active, 'lg:after:absolute lg:after:border-[5px] lg:after:border-transparent lg:after:border-t-slate-700 lg:after:content-[\'\'] lg:after:h-0 lg:after:mt-1 lg:after:right-0 lg:after:pointer-events-none lg:after:top-1/2 lg:after:-translate-y-1/2 lg:after:w-0 lg:pr-4 relative' : hasArrows }"
+           v-bind:class="{ 'text-highlight': active, 'text-slate-800': !active, 'lg:after:absolute lg:after:border-[5px] lg:after:border-transparent lg:after:border-t-slate-700 lg:after:content-[\'\'] lg:after:h-0 lg:after:mt-1 lg:after:right-0 lg:after:pointer-events-none lg:after:top-1/2 lg:after:-translate-y-1/2 lg:after:w-0 lg:pr-4 relative' : hasArrows }"
            v-bind:href="!router ? to : null"
            v-bind:is="type"
            v-bind:to="router ? to : null"
