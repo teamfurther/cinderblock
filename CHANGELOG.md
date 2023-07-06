@@ -2,45 +2,14 @@
 
 All notable changes to `@teamfurther/cinderblock` will be documented in this file.
 
-## 0.1.0 - 2020-01-20
-- Initial Beta release
+## 1.0.0 - 2023-04-19
+- Initial v1.0 release with Vue3, Tailwind and Vite support.
 
-## 0.1.1 - 2020-03-16
-- Fixed namespace
-- Refactored tests
-- Other minor fixes
+## 1.0.1 - 2023-05-17
+- Fixed minor CSS issues in CNavigationItem component.
 
-# 0.1.2 - 2020-03-20
-- DataTable: fixed an issue with control value not updating on sort
+## 1.0.2 - 2023-05-25
+- Updated CTooltipIcon components's icon to a cleaner look.
 
-# 0.1.3 - 2020-03-23
-- npm to include files in `dist`
-
-# 0.1.4 - 2020-03-23
-- npm to include files in `src`
-
-# 0.1.5 - 2020-03-24
-- DataTable: fixed recursive component issue
-
-# 0.1.6 - 2020-06-04
-- Control: autocomplete and tag is now able to accept callback methods as source
-- Control: autocomplete and tag is now able to handle nested objects as label or value
-- Panel: added slotProps
-
-# 0.1.7 - 2020-06-05
-- Minor fixes
-
-# 0.1.8 - 2020-06-05
-- Minor fixes
-
-# 0.1.9 - 2021-05-14
-- Updated dependencies
-- Refactored tests
-
-# 0.1.10 - 2022-09-23
-- https://github.com/teamfurther/cinderblock/issues/6
-- https://github.com/teamfurther/cinderblock/issues/19
-- https://github.com/teamfurther/cinderblock/issues/25
-
-# 0.1.11 - 2022-12-12
-- Minor fixes
+## 1.0.3 - 2023-05-25
+- Updated JS dependencies.

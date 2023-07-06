@@ -24,6 +24,11 @@
     font-weight: 500;
 }
 
+button.dp__action_select {
+    background: var(--dp-primary-color);
+    color: var(--dp-primary-text-color);
+}
+
 .dp__menu {
     font-size: 14px;
 }
