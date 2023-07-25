@@ -1,7 +1,7 @@
 <template>
     <div class="c-control c-control-date">
         <label class="c-control__label block font-medium mb-1 text-slate-800 text-sm"
-               v-bind:class="{ 'text-error': invalid, 'after:content-[\'*\'] after:text-red-400': required }"
+               v-bind:class="{ '!text-error': invalid, 'after:content-[\'*\'] after:text-red-400': required }"
                v-bind:for="name"
                v-if="label"
         >
@@ -17,6 +17,7 @@
                         v-on:update:modelValue="emitValue">
                 <template v-slot:dp-input="{ value, onInput, onEnter, onTab, onClear }">
                     <input class="c-control__field c-control-date__field bg-transparent block disabled:bg-white disabled:cursor-not-allowed disabled:text-slate-400 focus:outline-0 h-8 leading-none px-1 read-only:pointer-events-none text-slate-800 text-sm w-full" type="text"
+                           v-bind:class="{ '!text-error': invalid }"
                            v-bind:disabled="disabled"
                            v-bind:id="name"
                            v-bind:name="name"
@@ -41,7 +42,7 @@
         </div>
 
         <div class="c-control__notes c-control-date__notes text-slate-800 text-sm"
-             v-bind:class="{ 'text-error': invalid }"
+             v-bind:class="{ '!text-error': invalid }"
              v-if="$slots.notes"
         >
             <slot name="notes"></slot>

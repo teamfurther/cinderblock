@@ -1,7 +1,7 @@
 <template>
     <div class="c-control c-control-toggle">
         <label class="c-control__label block font-medium mb-1 text-slate-800 text-sm"
-               v-bind:class="{ 'text-error': invalid, 'after:content-[\'*\'] after:text-red-400': required }"
+               v-bind:class="{ '!text-error': invalid, 'after:content-[\'*\'] after:text-red-400': required }"
                v-bind:for="name"
                v-if="label"
         >
@@ -27,7 +27,7 @@
         </div>
 
         <div class="c-control__notes c-control-toggle__notes text-slate-800 text-sm"
-             v-bind:class="{ 'text-error': invalid }"
+             v-bind:class="{ '!text-error': invalid }"
              v-if="$slots.notes"
         >
             <slot name="notes"></slot>

@@ -1,7 +1,7 @@
 <template>
     <div class="c-control c-control-text">
         <label class="c-control__label block font-medium mb-1 text-slate-800 text-sm"
-               v-bind:class="{ 'text-error': invalid, 'after:content-[\'*\'] after:text-red-400': required }"
+               v-bind:class="{ '!text-error': invalid, 'after:content-[\'*\'] after:text-red-400': required }"
                v-bind:for="name"
                v-if="label"
         >
@@ -12,6 +12,7 @@
              v-bind:class="{ '!border-b-slate-100' : disabled, '!border-b-error' : invalid }"
         >
             <input class="c-control__field c-control-text__field bg-transparent block disabled:bg-white disabled:cursor-not-allowed disabled:text-slate-400 focus:outline-0 h-8 leading-none peer px-1 read-only:pointer-events-none text-slate-800 text-sm w-full"
+                   v-bind:class="{ '!text-error': invalid }"
                    v-bind:disabled="disabled"
                    v-bind:id="name"
                    v-bind:name="name"
@@ -23,15 +24,16 @@
                    v-on:input="emitValue"
             />
             <textarea class="c-control__field c-control-text__field block disabled:bg-white disabled:cursor-not-allowed disabled:text-slate-400 focus:outline-0 leading-none peer px-1 read-only:pointer-events-none text-slate-800 text-sm w-full"
-                   v-bind:disabled="disabled"
-                   v-bind:id="name"
-                   v-bind:name="name"
-                   v-bind:placeholder="placeholder"
-                   v-bind:readonly="readonly"
-                   v-bind:rows="rows"
-                   v-else
-                   v-html="modelValue"
-                   v-on:input="emitValue"
+                      v-bind:class="{ '!text-error': invalid }"
+                      v-bind:disabled="disabled"
+                      v-bind:id="name"
+                      v-bind:name="name"
+                      v-bind:placeholder="placeholder"
+                      v-bind:readonly="readonly"
+                      v-bind:rows="rows"
+                      v-else
+                      v-html="modelValue"
+                      v-on:input="emitValue"
             ></textarea>
             <span class="absolute bg-highlight -bottom-px duration-500 h-px left-0 opacity-0 peer-focus:opacity-100 peer-focus:w-full transition-all w-0"></span>
 
@@ -49,7 +51,7 @@
         </div>
 
         <div class="c-control__notes c-control-text__notes text-slate-800 text-sm"
-             v-bind:class="{ 'text-error': invalid }"
+             v-bind:class="{ '!text-error': invalid }"
              v-if="$slots.notes"
         >
             <slot name="notes"></slot>
