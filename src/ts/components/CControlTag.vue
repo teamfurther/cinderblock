@@ -166,18 +166,6 @@
         emits('update:modelValue', selectedValues.value);
     }
 
-    function fetchArrayObject(arr: any[], prop: string): any {
-        let result = [];
-        for (let i = 0; i < arr.length; i++ ) {
-            let obj = fetchObject(arr[i], prop)
-            if (obj) {
-                result.push(obj);
-            }
-        }
-
-        return result;
-    }
-
     function fetchObject(obj: any, prop: string): any {
         if (typeof obj === 'undefined') {
             return false;
@@ -237,8 +225,8 @@
         selectedValues.value = props.modelValue;
 
         if (props.labelField !== props.valueField) {
-            if (props.sourceGet !== '' && typeof props.sourceGet === 'string') {
-                selectedValues.value.forEach((value: string) => {
+            selectedValues.value.forEach((value: string) => {
+                if (props.sourceGet !== '' && typeof props.sourceGet === 'string') {
                     fetch(props.sourceGet + value)
                         .then(response => response.json())
                         .then(data => {
@@ -247,20 +235,20 @@
                         .catch(error => {
                             console.error('[Cinderblock error]: There was an error retrieving tag control default value');
                         });
-                });
-            } else if (props.sourceGet !== '' && typeof props.sourceGet === 'function') {
-                let data = props.sourceGet(selectedValue.value);
+                } else if (props.sourceGet !== '' && typeof props.sourceGet === 'function') {
+                    let data = props.sourceGet(value);
 
-                if (Promise.resolve(data) == data) { // check if Promise
-                    data.then((data: any) => {
-                        selectedTags.value = selectedTags.value.concat(fetchArrayObject(data, props.labelField));
-                    })
-                } else if (data) {
-                    selectedTags.value = selectedTags.value.concat(fetchArrayObject(data, props.labelField));
+                    if (Promise.resolve(data) == data) { // check if Promise
+                        data.then((data: any) => {
+                            selectedTags.value = selectedTags.value.concat(fetchObject(data, props.labelField));
+                        })
+                    } else if (data) {
+                        selectedTags.value = selectedTags.value.concat(fetchObject(data, props.labelField));
+                    }
+                } else {
+                    selectedTags.value = selectedTags.value.concat(fetchObject(props.modelValue, props.labelField));
                 }
-            } else {
-                selectedTags.value = selectedTags.value.concat(fetchArrayObject(props.modelValue, props.labelField));
-            }
+            });
         } else {
             selectedTags.value = props.modelValue;
         }

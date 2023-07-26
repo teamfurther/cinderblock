@@ -18,3 +18,6 @@ All notable changes to `@teamfurther/cinderblock` will be documented in this fil
 - Adjusted invalid state CSS.
 - Added reset method to CControlAutocomplete.
 - Updated JS dependencies.
+
+## 1.0.5 - 2023-07-26
+- Changed CControlTag source get behaviour to match that of CControlAutocomplete.
