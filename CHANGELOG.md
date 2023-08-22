@@ -21,3 +21,6 @@ All notable changes to `@teamfurther/cinderblock` will be documented in this fil
 
 ## 1.0.5 - 2023-07-26
 - Changed CControlTag source get behaviour to match that of CControlAutocomplete.
+
+## 1.0.6 - 2023-08-22
+- Added avatar capability to CControlTag results list.

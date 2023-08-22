@@ -43,7 +43,20 @@
                 v-if="searchResults.length"
             >
                 <li v-for="searchResult in searchResults">
-                    <a class="cursor-pointer flex h-8 hover:bg-slate-50 items-center px-2.5 py-1 w-full" v-on:click="selectValue(searchResult)" v-html="fetchObject(searchResult, labelField)"></a>
+                    <a class="cursor-pointer flex h-8 hover:bg-slate-50 items-center px-2.5 py-1 w-full"
+                       v-on:click="selectValue(searchResult)"
+                    >
+                        <span v-text="fetchObject(searchResult, labelField)"></span>
+
+                        <img class="h-6 -mt-px rounded w-6"
+                             v-bind:class="{
+                                'mr-2 order-first' : avatarPosition === 'left',
+                                'ml-auto' : avatarPosition === 'right',
+                             }"
+                             v-bind:src="props.avatarField ? fetchObject(searchResult, props.avatarField) : ''"
+                             v-if="avatarField"
+                        />
+                    </a>
                 </li>
             </ul>
         </div>
@@ -83,13 +96,22 @@
     }, 150);
 
     const emits = defineEmits(['update:modelValue']);
+
+    let avatar = ref<string>('');
     let searchString = ref<string>('');
     let searchResults = ref<any[]>([]);
     let selectedTags = ref<any[]>([]);
-    let selectedValue = ref<any>(null);
     let selectedValues = ref<any[]>([]);
 
     const props = defineProps({
+        avatarField: {
+            default: null,
+            type: String,
+        },
+        avatarPosition: {
+            default: 'left',
+            type: String as PropType<PositionXEnum>,
+        },
         disabled: {
             default: false,
             type: Boolean,
