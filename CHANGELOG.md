@@ -24,3 +24,6 @@ All notable changes to `@teamfurther/cinderblock` will be documented in this fil
 
 ## 1.0.6 - 2023-08-22
 - Added avatar capability to CControlTag results list.
+
+## 1.0.7 - 2023-08-22
+- Updated JS dependencies.
