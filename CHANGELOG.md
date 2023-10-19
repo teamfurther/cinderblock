@@ -27,3 +27,6 @@ All notable changes to `@teamfurther/cinderblock` will be documented in this fil
 
 ## 1.0.7 - 2023-08-22
 - Updated JS dependencies.
+
+## 1.0.8 - 2023-10-19
+- CDataTable now supports scrollable and stacked responsive layouts.

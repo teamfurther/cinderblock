@@ -137,7 +137,7 @@
 
         <!-- Data Tables -->
         <h1 class="my-10 text-3xl"><a class="cursor-pointer text-sky-400" id="datatable" href="#datatable">#</a> Data Tables</h1>
-        <c-data-table v-bind:data="tabledata" v-on:sortTable="sortTable">
+        <c-data-table v-bind:data="tabledata" v-on:sortTable="sortTable" responsive-breakpoint="lg">
             <template v-slot:item.actions="{ item }">
                 <a class="text-sky-500" href="#" v-html="'edit #' + item.values.id"></a>
             </template>

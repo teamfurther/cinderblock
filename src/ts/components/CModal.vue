@@ -1,6 +1,6 @@
 <template>
-    <div class="c-modal pointer-events-none" role="dialog"
-         v-bind:class="{ 'pointer-events-auto': open }"
+    <div class="c-modal" role="dialog"
+         v-bind:class="{ 'pointer-events-auto': open, 'pointer-events-none': !open }"
     >
         <div class="c-modal__content bg-white delay-100 duration-200 fixed left-1/2 max-h-[calc(100vh-6rem)] max-w-[600px] opacity-0 overflow-y-auto p-4 rounded top-0 transition-all -translate-x-1/2 w-[calc(100%-1rem)] z-50"
              v-bind="$attrs"

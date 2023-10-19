@@ -8,7 +8,7 @@
             {{ label }}
         </label>
 
-        <div class="c-control__group c-control-toggle__group flex items-center mt-4"
+        <div class="c-control__group c-control-toggle__group flex items-center"
              v-bind:class="{ 'cursor-not-allowed opacity-30' : disabled, 'cursor-not-allowed' : readonly }"
         >
             <div class="c-control__toggle__wrapper relative">

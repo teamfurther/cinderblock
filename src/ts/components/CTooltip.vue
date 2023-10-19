@@ -8,7 +8,7 @@
             'bottom-8 justify-center left-1/2 -translate-x-1/2' : position === 'top'
         }"
     >
-        <div class="c-tooltip__inner after:absolute after:border-8 after:border-transparent after:content-[''] after:h-0 after:pointer-events-none after:w-0 bg-slate-700 flex items-center min-w-[100px] min-h-[50px] px-2 py-2.5 relative rounded text-sm text-white"
+        <div class="c-tooltip__inner after:absolute after:border-8 after:border-transparent after:content-[''] after:h-0 after:pointer-events-none after:w-0 bg-slate-700 flex items-center min-w-[100px] min-h-[50px] px-1 py-1.5 relative rounded text-sm text-white"
              v-bind:class="{
                 'after:border-b-slate-700 after:bottom-full after:left-1/2  after:-translate-x-1/2' : position === 'bottom',
                 'after:border-l-slate-700 after:left-full' : position === 'left',
