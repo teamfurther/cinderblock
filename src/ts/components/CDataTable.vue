@@ -83,7 +83,7 @@
              ]"
              v-for="item in tableData.items" v-if="tableData.items"
         >
-            <div class="border-b border-slate-200 gap-4 grid grid-cols-2 py-1"
+            <div class="border-b border-slate-200 gap-4 grid grid-cols-2 p-1"
                  v-for="(columnName, column) in tableData.columnNames"
             >
                 <strong class="flex items-center text-sm">{{ columnName }}</strong>
