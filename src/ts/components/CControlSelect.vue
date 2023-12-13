@@ -16,11 +16,10 @@
                     v-bind:disabled="disabled"
                     v-bind:id="name"
                     v-bind:name="name"
-                    v-bind:readonly="readonly"
                     v-bind:value="modelValue"
                     v-on:input="emitValue"
             >
-                <option v-bind:value="option.value" v-for="option in options">
+                <option v-bind:disabled="option.disabled" v-bind:value="option.value" v-for="option in options">
                     {{ option.label }}
                 </option>
             </select>
@@ -68,10 +67,6 @@
         options: {
             required: true,
             type: Array<OptionType>,
-        },
-        readonly: {
-            default: false,
-            type: Boolean,
         },
         required: {
             default: false,

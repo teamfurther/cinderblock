@@ -278,6 +278,7 @@
             value: 1
         },
         {
+            disabled: true,
             label: 'Option 2',
             value: 2
         },

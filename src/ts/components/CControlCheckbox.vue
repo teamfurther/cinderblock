@@ -12,19 +12,19 @@
              v-bind:class="[grid, { 'cursor-not-allowed opacity-30' : disabled, 'cursor-not-allowed' : readonly }]"
         >
             <label class="cursor-pointer duration-500 flex group hover:bg-slate-100 items-center px-2.5 py-1 relative rounded text-slate-700 text-sm transition-all w-auto"
-                   v-bind:class="{ '!text-error' : invalid }"
+                   v-bind:class="{ '!cursor-not-allowed opacity-30' : option.disabled, '!text-error' : invalid }"
                    v-for="option in options"
             >
                 <input class="c-control__checkbox c-control-checkbox__checkbox h-4 mr-2 opacity-0 peer relative w-4 z-20" type="checkbox"
                        v-bind:checked="selectedValues.indexOf(option.value) !== -1"
-                       v-bind:disabled="disabled"
+                       v-bind:disabled="option.disabled"
                        v-bind:name="name"
                        v-bind:readonly="readonly"
                        v-bind:value="option.value"
                        v-on:change="updateSelectedValues(option.value)"
                 />
-                <span class="absolute before:absolute before:content-['&#x2714;'] before:flex before:font-['Zapf_Dingbats'] before:h-full before:items-center before:justify-center before:left-0 before:text-white before:text-xs before:top-0 before:w-full bg-white border-2 border-slate-500 duration-500 group-hover:border-highlight h-4 left-1 peer-checked:bg-highlight peer-checked:border-highlight rounded transition-all w-4 z-10"
-                      v-bind:class="{ '!border-error peer-checked:!bg-error' : invalid }"
+                <span class="absolute before:absolute before:content-['&#x2714;'] before:flex before:font-['Zapf_Dingbats'] before:h-full before:items-center before:justify-center before:left-0 before:text-white before:text-xs before:top-0 before:w-full bg-white border-2 border-slate-500 duration-500 h-4 left-1 peer-checked:bg-highlight peer-checked:border-highlight rounded transition-all w-4 z-10"
+                      v-bind:class="{ 'group-hover:border-highlight' : !option.disabled, '!border-error peer-checked:!bg-error' : invalid }"
                 ></span>
                 {{ option.label }}
             </label>
