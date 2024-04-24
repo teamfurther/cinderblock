@@ -2,6 +2,9 @@
 
 All notable changes to `@teamfurther/cinderblock` will be documented in this file.
 
+## 1.0.12 - 2024-04-24
+- Fixed minor bugs.
+
 ## 1.0.11 - 2024-04-24
 - Control classes can now be controlled granularly.
 - Updated JS dependencies.

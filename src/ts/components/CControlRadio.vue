@@ -11,12 +11,12 @@
         <div class="c-control__group c-control-radio__group grid w-full"
              v-bind:class="[{ 'cursor-not-allowed opacity-30' : disabled, 'cursor-not-allowed' : readonly }, classGroup, grid]"
         >
-            <label class="cursor-pointer duration-500 flex group hover:bg-slate-100 items-center px-2.5 py-1 relative rounded text-slate-700 text-sm transition-all w-auto"
+            <label class="cursor-pointer duration-500 flex group hover:bg-slate-100 items-center p-1 relative rounded text-slate-700 text-sm transition-all w-auto"
                    v-bind:class="[{ '!cursor-not-allowed opacity-30' : option.disabled, '!text-error' : invalid }, classOptionLabel]"
                    v-for="option in options"
             >
                 <input class="c-control__radio c-control-radio__radio h-4 mr-2 opacity-0 peer relative w-4 z-20" type="radio"
-                       v-bind:class="[{ '!border-error' : invalid }, classField]"
+                       v-bind:class="{ '!border-error' : invalid }"
                        v-bind:checked="selectedValue === option.value"
                        v-bind:disabled="option.disabled"
                        v-bind:name="name"
@@ -25,7 +25,7 @@
                        v-on:change="updateSelectedValue(option.value)"
                 />
                 <span class="absolute before:absolute before:content-['&#x2714;'] before:flex before:font-['Zapf_Dingbats'] before:h-full before:items-center before:justify-center before:left-0 before:text-white before:text-xs before:top-0 before:w-full bg-white border-2 border-slate-500 duration-500 h-4 left-1 peer-checked:bg-highlight peer-checked:border-highlight rounded-full transition-all w-4 z-10"
-                      v-bind:class="{ 'group-hover:border-highlight' : !option.disabled, '!border-error peer-checked:!bg-error' : invalid }"
+                      v-bind:class="[{ 'group-hover:border-highlight' : !option.disabled, '!border-error peer-checked:!bg-error' : invalid }, classField]"
                 ></span>
                 {{ option.label }}
             </label>

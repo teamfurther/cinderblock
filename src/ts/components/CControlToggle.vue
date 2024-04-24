@@ -36,11 +36,10 @@
 </template>
 
 <script setup lang="ts">
-    import { onMounted, PropType, ref } from 'vue';
+    import { onMounted, PropType, ref, watch } from 'vue';
 
     import CTooltipIcon from './CTooltipIcon.vue';
     import { PositionEnum } from '../enums/PositionEnum';
-    import { OptionType } from '../types/OptionType';
 
     const emits = defineEmits(['update:modelValue']);
     let selectedValue = ref<any>(null);
@@ -96,4 +95,8 @@
 
         emits('update:modelValue', selectedValue.value);
     }
+
+    watch(() => props.modelValue, () => {
+        selectedValue.value = props.modelValue;
+    });
 </script>
