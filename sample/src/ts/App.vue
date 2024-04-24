@@ -94,6 +94,7 @@
 
         <c-control-radio
             class="mb-10"
+            grid="grid-cols-2"
             label="Radio"
             name="radio"
             v-bind:options="options"
@@ -130,6 +131,7 @@
         />
 
         <c-control-text
+            class-field="bg-orange-100"
             label="Text"
             name="text"
             v-model="textValue"

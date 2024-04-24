@@ -1,7 +1,7 @@
 <template>
     <div class="c-control c-control-number">
         <label class="c-control__label block font-medium mb-1 text-slate-800 text-sm"
-               v-bind:class="{ '!text-error': invalid, 'after:content-[\'*\'] after:text-red-400': required }"
+               v-bind:class="[{ '!text-error': invalid, 'after:content-[\'*\'] after:text-red-400': required }, classLabel]"
                v-bind:for="name"
                v-if="label"
         >
@@ -9,10 +9,10 @@
         </label>
 
         <div class="c-control__group c-control-number__group border-b border-b-slate-300 flex items-center relative"
-             v-bind:class="{ '!border-b-slate-100' : disabled, '!border-b-error' : invalid }"
+             v-bind:class="[{ '!border-b-slate-100' : disabled, '!border-b-error' : invalid }, classGroup]"
         >
             <input class="c-control__field c-control-text__field bg-transparent block disabled:bg-white disabled:cursor-not-allowed disabled:text-slate-400 focus:outline-0 h-8 leading-none peer px-1 read-only:pointer-events-none text-slate-800 text-sm w-full" type="number"
-                   v-bind:class="{ '!text-error': invalid }"
+                   v-bind:class="[{ '!text-error': invalid }, classField]"
                    v-bind:disabled="disabled"
                    v-bind:id="name"
                    v-bind:max="max"
@@ -60,6 +60,18 @@
     const emits = defineEmits(['update:modelValue']);
 
     const props = defineProps({
+        classField: {
+            default: '',
+            type: String,
+        },
+        classGroup: {
+            default: '',
+            type: String,
+        },
+        classLabel: {
+            default: '',
+            type: String,
+        },
         disabled: {
             default: false,
             type: Boolean,
@@ -80,9 +92,6 @@
             default: '',
             type: String,
         },
-        modelValue: {
-            default: null,
-        },
         max: {
             default: null,
             type: Number,
@@ -90,6 +99,9 @@
         min: {
             default: null,
             type: Number,
+        },
+        modelValue: {
+            default: null,
         },
         name: {
             required: true,

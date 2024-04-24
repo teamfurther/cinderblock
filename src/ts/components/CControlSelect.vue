@@ -1,7 +1,7 @@
 <template>
     <div class="c-control c-control-select">
         <label class="c-control__label block font-medium mb-1 text-slate-800 text-sm"
-               v-bind:class="{ '!text-error': invalid, 'after:content-[\'*\'] after:text-red-400': required }"
+               v-bind:class="[{ '!text-error': invalid, 'after:content-[\'*\'] after:text-red-400': required }, classLabel]"
                v-bind:for="name"
                v-if="label"
         >
@@ -9,10 +9,10 @@
         </label>
 
         <div class="c-control__group c-control-select__group border-b border-b-slate-300 flex flex-col items-start"
-             v-bind:class="{ 'cursor-not-allowed opacity-30' : disabled, '!border-b-red-400' : invalid }"
+             v-bind:class="[{ 'cursor-not-allowed opacity-30' : disabled, '!border-b-error' : invalid }, classGroup]"
         >
             <select class="control__select bg-transparent border-0 focus:outline-0 h-8 text-sm w-full"
-                    v-bind:class="{ '!border-b-error !text-error' : invalid }"
+                    v-bind:class="[{ '!border-b-error !text-error': invalid }, classField]"
                     v-bind:disabled="disabled"
                     v-bind:id="name"
                     v-bind:name="name"
@@ -46,6 +46,18 @@
     const emits = defineEmits(['update:modelValue']);
 
     const props = defineProps({
+        classField: {
+            default: '',
+            type: String,
+        },
+        classGroup: {
+            default: '',
+            type: String,
+        },
+        classLabel: {
+            default: '',
+            type: String,
+        },
         disabled: {
             default: false,
             type: Boolean,
