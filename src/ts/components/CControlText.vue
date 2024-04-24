@@ -23,7 +23,7 @@
                    v-if="type !== 'textarea'"
                    v-on:input="emitValue"
             />
-            <textarea class="c-control__field c-control-text__field bg-transparent block disabled:bg-white disabled:cursor-not-allowed disabled:text-slate-400 focus:outline-0 leading-none peer px-1 read-only:pointer-events-none text-slate-800 text-sm w-full"
+            <textarea class="c-control__field c-control-text__field block disabled:bg-white disabled:cursor-not-allowed disabled:text-slate-400 focus:outline-0 leading-none peer px-1 read-only:pointer-events-none text-slate-800 text-sm w-full"
                       v-bind:class="[{ '!text-error': invalid }, classField]"
                       v-bind:disabled="disabled"
                       v-bind:id="name"
@@ -32,7 +32,7 @@
                       v-bind:readonly="readonly"
                       v-bind:rows="rows"
                       v-else
-                      v-html="modelValue"
+                      v-bind:value="modelValue"
                       v-on:input="emitValue"
             ></textarea>
             <span class="absolute bg-highlight -bottom-px duration-500 h-px left-0 opacity-0 peer-focus:opacity-100 peer-focus:w-full transition-all w-0"></span>

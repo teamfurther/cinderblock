@@ -2,6 +2,9 @@
 
 All notable changes to `@teamfurther/cinderblock` will be documented in this file.
 
+## 1.0.13 - 2024-04-24
+- Fixed a bug in CControlText textareas, when value wasn't reactive.
+
 ## 1.0.12 - 2024-04-24
 - Fixed minor bugs.
 
