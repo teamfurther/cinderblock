@@ -1,12 +1,12 @@
 import { mount } from '@vue/test-utils'
 
-import Vue from 'vue';
+import { nextTick } from 'vue';
 
-import Btn from '../src/js/components/Btn';
+import CButton from '../src/ts/components/CButton';
 
-describe('Btn', function () {
+describe('CButton', function () {
     // set-up
-    const wrapper = mount(Btn);
+    const wrapper = mount(CButton);
 
     test('is a Vue instance', function () {
         // test
@@ -18,21 +18,20 @@ describe('Btn', function () {
         expect(wrapper.element.tagName).toBe('BUTTON');
     });
 
-    test('is a link if `href` is set', function () {
+    test('is a link if `to` is set', async function () {
         // set-up
         wrapper.setProps({
-            href: '/home'
+            to: '/home'
         });
 
         // test
-        Vue.nextTick(function () {
-            expect(wrapper.element.tagName).toBe('A');
-        });
+        await nextTick();
+        expect(wrapper.element.tagName).toBe('A');
     });
 
     test('body is set correctly', function () {
         // set-up
-        const wrapper = mount(Btn, {
+        const wrapper = mount(CButton, {
             slots: {
                 default: 'This is my <strong>body</strong>.'
             }

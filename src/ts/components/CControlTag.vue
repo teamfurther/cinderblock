@@ -97,7 +97,7 @@
 
     const emits = defineEmits(['update:modelValue']);
 
-    let searchString = ref<string>('');
+    let searchString = ref<any>('');
     let searchResults = ref<any[]>([]);
     let selectedTags = ref<any[]>([]);
     let selectedValues = ref<any[]>([]);

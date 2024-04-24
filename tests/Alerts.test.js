@@ -1,11 +1,11 @@
 import { mount } from '@vue/test-utils'
-import Vue from 'vue';
+import { nextTick } from 'vue';
 
-import Alert from '../src/js/components/Alert';
-import Alerts from '../src/js/components/Alerts';
+import CAlert from '../src/ts/components/CAlert';
+import CAlerts from '../src/ts/components/CAlerts';
 
-describe('Alerts', function () {
-    const wrapper = mount(Alerts, {
+describe('CAlerts', function () {
+    const wrapper = mount(CAlerts, {
         propsData: {
             alerts: [
                 {
@@ -22,8 +22,8 @@ describe('Alerts', function () {
     });
 });
 
-describe('Alert', function () {
-    const wrapper = mount(Alert, {
+describe('CAlert', function () {
+    const wrapper = mount(CAlert, {
         propsData: {
             message: 'This is an alert message.',
             type: 'success'
@@ -35,17 +35,16 @@ describe('Alert', function () {
         expect(wrapper).toBeTruthy();
     });
 
-    test('title is set correctly', function () {
+    test('title is set correctly', async function () {
         // set-up
         wrapper.setProps({
             title: 'Test title'
         });
 
-        Vue.nextTick(function () {
-            // test
-            expect(wrapper.vm.title).toBe(wrapper.props('title'));
-            expect(wrapper.html()).toContain(wrapper.props('title'));
-        });
+        // test
+        await nextTick();
+        expect(wrapper.vm.title).toBe(wrapper.props('title'));
+        expect(wrapper.html()).toContain(wrapper.props('title'));
     });
 
     test('message is set correctly', function () {
@@ -68,21 +67,21 @@ describe('Alert', function () {
 
     test('emits `close-alert` when X icon is clicked', function () {
         // set-up
-        const xIcon = wrapper.find('.alert__close');
+        const xIcon = wrapper.find('.c-alert__close');
         xIcon.trigger('click');
 
         // test
-        expect(wrapper.emitted('close-alert')).toBeTruthy();
+        expect(wrapper.emitted('closeAlert')).toBeTruthy();
     });
 
     test('emits `alert-closed` after X icon is clicked', function () {
         // set-up
-        const xIcon = wrapper.find('.alert__close');
+        const xIcon = wrapper.find('.c-alert__close');
         xIcon.trigger('click');
 
         setTimeout(function () {
             // test
-            expect(wrapper.emitted('alert-closed')).toBeTruthy();
+            expect(wrapper.emitted('alertClosed')).toBeTruthy();
         }, wrapper.vm.autoDismiss);
     });
 });

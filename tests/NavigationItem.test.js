@@ -1,15 +1,13 @@
 import { mount } from '@vue/test-utils'
 
-import Vue from 'vue';
+import Vue, {nextTick} from 'vue';
 
-import NavigationItem from '../src/js/components/NavigationItem';
+import CNavigationItem from '../src/ts/components/CNavigationItem';
 
-describe('NavigationItem', function () {
-    const wrapper = mount(NavigationItem, {
+describe('CNavigationItem', function () {
+    const wrapper = mount(CNavigationItem, {
         propsData: {
-            hasDropdown: true,
-            isArrowless: true,
-            isTab: true
+            hasDropdown: true
         },
         slots: {
             default: 'Nav item',
@@ -30,19 +28,5 @@ describe('NavigationItem', function () {
     test('dropdown is set correctly', function () {
         // test
         expect(wrapper.html()).toContain('<a>Nav item</a>');
-    });
-
-    test('is arrowless works', function () {
-        Vue.nextTick(function () {
-            // test
-            expect(wrapper.find('.is-arrowless').exists()).toBe(true);
-        });
-    });
-
-    test('is tab works', function () {
-        Vue.nextTick(function () {
-            // test
-            expect(wrapper.find('.is-tab').exists()).toBe(true);
-        });
     });
 });

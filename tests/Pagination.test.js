@@ -1,14 +1,12 @@
 import { mount } from '@vue/test-utils'
 
-import Vue from 'vue';
-
-import Pagination from '../src/js/components/Pagination';
+import CPagination from '../src/ts/components/CPagination';
 
 // Mock a DOM
 document.body.innerHTML = 'This is a mock DOM';
 
-describe('Pagination', function () {
-    const wrapper = mount(Pagination, {
+describe('CPagination', function () {
+    const wrapper = mount(CPagination, {
         propsData: {
             currentPage: 1,
             pages: 10

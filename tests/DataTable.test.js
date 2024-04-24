@@ -1,14 +1,12 @@
 import { mount } from '@vue/test-utils'
 
-import Vue from 'vue';
-
-import DataTable from '../src/js/components/DataTable';
+import CDataTable from '../src/ts/components/CDataTable';
 
 // Mock a DOM
 document.body.innerHTML = 'This is a mock DOM';
 
-describe('DataTable', function () {
-    const wrapper = mount(DataTable, {
+describe('CDataTable', function () {
+    const wrapper = mount(CDataTable, {
         propsData: {
             data: {
                 columnAligns: {age: 'center'}, //left, right, center

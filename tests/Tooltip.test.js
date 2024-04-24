@@ -1,13 +1,13 @@
 import { mount } from '@vue/test-utils'
 
-import Vue from 'vue';
+import Vue, {nextTick} from 'vue';
 
-import Tooltip from '../src/js/components/Tooltip';
+import CTooltip from '../src/ts/components/CTooltip';
 
 describe('Tooltip', function () {
-    const wrapper = mount(Tooltip, {
+    const wrapper = mount(CTooltip, {
         propsData: {
-            isOpen: false
+            active: false
         },
         slots: {
             default: 'This is a tooltip'
@@ -29,27 +29,25 @@ describe('Tooltip', function () {
         expect(wrapper.html()).toContain('This is a tooltip');
     });
 
-    test('opens on `isOpen` prop change', function () {
+    test('opens on `isOpen` prop change', async function () {
         // set-up
         wrapper.setProps({
-            isOpen: true
+            active: true
         });
 
-        Vue.nextTick(function () {
-            // test
-            expect(wrapper.classes('is-open')).toBe(true);
-        });
+        // test
+        await nextTick();
+        expect(wrapper.classes('pointer-events-auto')).toBe(true);
     });
 
-    test('closes on `isOpen` prop change', function () {
+    test('closes on `isOpen` prop change', async function () {
         // set-up
         wrapper.setProps({
-            isOpen: false
+            active: false
         });
 
-        Vue.nextTick(function () {
-            // test
-            expect(wrapper.classes('is-open')).toBe(false);
-        });
+        // test
+        await nextTick();
+        expect(wrapper.classes('pointer-events-none')).toBe(true);
     });
 });

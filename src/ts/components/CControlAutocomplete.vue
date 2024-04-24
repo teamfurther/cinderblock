@@ -100,7 +100,7 @@
     const emits = defineEmits(['update:modelValue']);
 
     let avatar = ref<string>('');
-    let searchString = ref<string>('');
+    let searchString = ref<any>('');
     let searchResults = ref<any[]>([]);
     let selectedValue = ref<any>(null);
 

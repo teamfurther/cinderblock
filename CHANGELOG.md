@@ -2,6 +2,11 @@
 
 All notable changes to `@teamfurther/cinderblock` will be documented in this file.
 
+## 1.0.11 - 2024-04-24
+- Control classes can now be controlled granularly.
+- Updated JS dependencies.
+- Refactored tests.
+
 ## 1.0.10 - 2023-12-13
 - CControlSelect options can now be disabled.
 - CControlCheckbox and CControlRadio values can now be individually disabled.

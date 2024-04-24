@@ -1,13 +1,13 @@
 import { mount } from '@vue/test-utils'
 
-import Vue from 'vue';
+import Vue, {nextTick} from 'vue';
 
-import Modal from '../src/js/components/Modal';
+import CModal from '../src/ts/components/CModal';
 
-describe('Modal', function () {
-    const wrapper = mount(Modal, {
+describe('CModal', function () {
+    const wrapper = mount(CModal, {
         propsData: {
-            isOpen: false
+            open: false
         }
     });
 
@@ -21,24 +21,23 @@ describe('Modal', function () {
         expect(wrapper.classes('is-open')).toBe(false);
     });
 
-    test('title is set correctly', function () {
+    test('title is set correctly', async function () {
         // set-up
         wrapper.setProps({
             title: 'Test title'
         });
 
-        Vue.nextTick(function () {
-            // test
-            expect(wrapper.vm.title).toBe(wrapper.props('title'));
-            expect(wrapper.html()).toContain(wrapper.props('title'));
-        });
+        // test
+        await nextTick();
+        expect(wrapper.vm.title).toBe(wrapper.props('title'));
+        expect(wrapper.html()).toContain(wrapper.props('title'));
     });
 
     test('header is set correctly', function () {
         // set-up
-        const wrapper = mount(Modal, {
+        const wrapper = mount(CModal, {
             propsData: {
-                isOpen: false,
+                open: false,
                 title: 'Test title'
             },
             slots: {
@@ -53,9 +52,9 @@ describe('Modal', function () {
 
     test('body is set correctly', function () {
         // set-up
-        const wrapper = mount(Modal, {
+        const wrapper = mount(CModal, {
             propsData: {
-                isOpen: false
+                open: false
             },
             slots: {
                 body: 'This is my <strong>body</strong>.'
@@ -68,9 +67,9 @@ describe('Modal', function () {
 
     test('footer is set correctly', function () {
         // set-up
-        const wrapper = mount(Modal, {
+        const wrapper = mount(CModal, {
             propsData: {
-                isOpen: false
+                open: false
             },
             slots: {
                 body: 'This is a <em>footer</em>.'
@@ -81,33 +80,31 @@ describe('Modal', function () {
         expect(wrapper.html()).toContain('This is a <em>footer</em>.');
     });
 
-    test('opens on `isOpen` prop change', function () {
+    test('opens on `isOpen` prop change', async function () {
         // set-up
         wrapper.setProps({
-            isOpen: true
+            open: true
         });
 
-        Vue.nextTick(function () {
-            // test
-            expect(wrapper.classes('is-open')).toBe(true);
-        });
+        // test
+        await nextTick();
+        expect(wrapper.classes('pointer-events-auto')).toBe(true);
     });
 
-    test('closes on `isOpen` prop change', function () {
+    test('closes on `open` prop change', async function () {
         // set-up
         wrapper.setProps({
-            isOpen: false
+            open: false
         });
 
-        Vue.nextTick(function () {
-            // test
-            expect(wrapper.classes('is-open')).toBe(false);
-        });
+        await nextTick();
+        // test
+        expect(wrapper.classes('pointer-events-none')).toBe(true);
     });
 
     test('emits `closeModal` when X icon is clicked', function () {
         // set-up
-        const xIcon = wrapper.find('.modal__close');
+        const xIcon = wrapper.find('.c-modal__close');
         xIcon.trigger('click');
 
         // test
@@ -116,7 +113,7 @@ describe('Modal', function () {
 
     test('emits `closeModal` when backdrop is clicked', function () {
         // set-up
-        const xIcon = wrapper.find('.modal__backdrop');
+        const xIcon = wrapper.find('.c-modal__backdrop');
         xIcon.trigger('click');
 
         // test

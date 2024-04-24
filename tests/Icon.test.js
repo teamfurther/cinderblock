@@ -1,14 +1,12 @@
 import { mount } from '@vue/test-utils'
 
-import Vue from 'vue';
-
-import Icon from '../src/js/components/Icon';
+import CIcon from '../src/ts/components/CIcon';
 
 // Mock a DOM
 document.body.innerHTML = 'This is a mock DOM';
 
-describe('Icon', function () {
-    const wrapper = mount(Icon, {
+describe('CIcon', function () {
+    const wrapper = mount(CIcon, {
         propsData: {
             icon: 'circle'
         }

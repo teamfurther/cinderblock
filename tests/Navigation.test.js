@@ -1,13 +1,11 @@
 import { mount } from '@vue/test-utils'
 
-import Vue from 'vue';
+import CNavigation from '../src/ts/components/CNavigation';
 
-import Navigation from '../src/js/components/Navigation';
-
-describe('Navigation', function () {
+describe('CNavigation', function () {
     test('is a Vue instance', function () {
         // set-up
-        const wrapper = mount(Navigation);
+        const wrapper = mount(CNavigation);
 
         // test
         expect(wrapper).toBeTruthy();
@@ -15,7 +13,7 @@ describe('Navigation', function () {
 
     test('body is set correctly', function () {
         // set-up
-        const wrapper = mount(Navigation, {
+        const wrapper = mount(CNavigation, {
             slots: {
                 default: '<a>Nav item</a>'
             }

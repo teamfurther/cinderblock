@@ -1,38 +1,37 @@
 import { mount } from '@vue/test-utils'
 
-import Vue from 'vue';
+import { nextTick } from 'vue';
 
-import Panel from '../src/js/components/Panel';
+import CPanel from '../src/ts/components/CPanel';
 
-describe('Panel', function () {
-    const wrapper = mount(Panel);
+describe('CPanel', function () {
+    const wrapper = mount(CPanel);
 
     test('is a Vue instance', function () {
         // test
         expect(wrapper).toBeTruthy();
     });
 
-    test('title is set correctly', function () {
+    test('title is set correctly', async function () {
         // set-up
         wrapper.setProps({
             title: 'Test title'
         });
 
-        Vue.nextTick(function () {
-            // test
-            expect(wrapper.vm.title).toBe(wrapper.props('title'));
-            expect(wrapper.html()).toContain(wrapper.props('title'));
-        });
+        // test
+        await nextTick();
+        expect(wrapper.vm.title).toBe(wrapper.props('title'));
+        expect(wrapper.html()).toContain(wrapper.props('title'));
     });
 
-    test('top left is set correctly', function () {
+    test('top is set correctly', function () {
         // set-up
-        const wrapper = mount(Panel, {
+        const wrapper = mount(CPanel, {
             propsData: {
                 title: 'Test title'
             },
             slots: {
-                topleft: '<h3>Custom title</h3>'
+                top: '<h3>Custom title</h3>'
             }
         });
 
@@ -41,21 +40,9 @@ describe('Panel', function () {
         expect(wrapper.html()).not.toContain(wrapper.props('title'));
     });
 
-    test('top right is set correctly', function () {
-        // set-up
-        const wrapper = mount(Panel, {
-            slots: {
-                topright: 'This is the <em>top right</em> slot.'
-            }
-        });
-
-        // test
-        expect(wrapper.html()).toContain('This is the <em>top right</em> slot.');
-    });
-
     test('body is set correctly', function () {
         // set-up
-        const wrapper = mount(Panel, {
+        const wrapper = mount(CPanel, {
             slots: {
                 body: 'This is my <strong>body</strong>.'
             }
@@ -65,27 +52,15 @@ describe('Panel', function () {
         expect(wrapper.html()).toContain('This is my <strong>body</strong>.');
     });
 
-    test('bottom left is set correctly', function () {
+    test('bottom is set correctly', function () {
         // set-up
-        const wrapper = mount(Panel, {
+        const wrapper = mount(CPanel, {
             slots: {
-                bottomleft: 'This is the <em>bottom left</em> slot.'
+                bottom: 'This is the <em>bottom</em> slot.'
             }
         });
 
         // test
-        expect(wrapper.html()).toContain('This is the <em>bottom left</em> slot.');
-    });
-
-    test('bottom right is set correctly', function () {
-        // set-up
-        const wrapper = mount(Panel, {
-            slots: {
-                bottomright: 'This is the <em>bottom right</em> slot.'
-            }
-        });
-
-        // test
-        expect(wrapper.html()).toContain('This is the <em>bottom right</em> slot.');
+        expect(wrapper.html()).toContain('This is the <em>bottom</em> slot.');
     });
 });

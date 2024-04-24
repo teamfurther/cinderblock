@@ -26,7 +26,7 @@
             <c-button class="bg-sky-400 text-white" disabled>Disabled button</c-button>
             <c-button class="bg-sky-400 text-white" loading>Loading button</c-button>
             <c-button class="bg-emerald-400 text-white" submit>Submit button</c-button>
-            <c-button class="bg-sky-400 text-white" href="https://gofurther.digital" target="_blank">Link button</c-button>
+            <c-button class="bg-sky-400 text-white" to="https://gofurther.digital" target="_blank">Link button</c-button>
         </div>
 
         <!-- Controls -->
