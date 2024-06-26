@@ -82,7 +82,7 @@
 </template>
 
 <script setup lang="ts">
-    import { onMounted, PropType, ref } from 'vue';
+    import { onMounted, PropType, ref, watch } from 'vue';
     import { debounce } from 'debounce';
 
     import CIcon from './CIcon.vue';
@@ -307,4 +307,8 @@
             selectedTags.value = props.modelValue;
         }
     }
+
+    watch(() => props.modelValue, () => {
+        setup();
+    });
 </script>
