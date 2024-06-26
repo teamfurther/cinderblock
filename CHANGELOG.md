@@ -2,6 +2,9 @@
 
 All notable changes to `@teamfurther/cinderblock` will be documented in this file.
 
+## 1.0.14 - 2024-06-26
+- CControlAutocomplete & CControlTag now accepts callback function as label field.
+
 ## 1.0.13 - 2024-04-24
 - Fixed a bug in CControlText textareas, when value wasn't reactive.
 

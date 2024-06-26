@@ -113,13 +113,13 @@
             class="mb-10"
             icon="tag"
             label="Tag"
-            label-field="name"
             name="tag"
             source-get="https://restcountries.com/v2/alpha/"
             source-search="https://restcountries.com/v2/name/"
             tooltip="I am a tooltip"
             tooltip-position="left"
             value-field="alpha3Code"
+            v-bind:label-field="(data) => data.name + ' (' + data.alpha3Code + ')'"
             v-model="tagValues"
         />
 

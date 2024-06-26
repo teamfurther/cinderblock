@@ -58,7 +58,7 @@
                     <a class="cursor-pointer flex h-8 hover:bg-slate-50 items-center px-2.5 py-1 w-full"
                        v-on:click="selectValue(searchResult)"
                     >
-                        <span v-text="fetchObject(searchResult, labelField)"></span>
+                        <span v-text="typeof labelField === 'function' ? labelField(searchResult) : fetchObject(searchResult, labelField)"></span>
 
                         <img class="h-6 -mt-px rounded w-6"
                              v-bind:class="{
@@ -147,7 +147,7 @@
         },
         labelField: {
             required: true,
-            type: String,
+            type: [Function, String],
         },
         modelValue: {
             default: null,
@@ -252,13 +252,20 @@
         searchResults.value = [];
 
         avatar.value = props.avatarField ? fetchObject(value, props.avatarField) : '';
-        searchString.value = fetchObject(value, props.labelField) || '';
+        searchString.value = typeof props.labelField === 'function'
+            ? props.labelField(value)
+            : fetchObject(value, props.labelField)
+        || '';
         selectedValue.value = fetchObject(value, props.valueField) || value;
 
         emits('update:modelValue', selectedValue.value);
     }
 
     function setup() {
+        if (!props.modelValue) {
+            return;
+        }
+
         selectedValue.value = props.modelValue;
         if (props.labelField !== props.valueField) {
             if (props.sourceGet !== '' && typeof props.sourceGet === 'string') {
@@ -266,7 +273,10 @@
                     .then(response => response.json())
                     .then(data => {
                         avatar.value = props.avatarField ? fetchObject(data, props.avatarField) : '';
-                        searchString.value = fetchObject(data, props.labelField) || '';
+                        searchString.value = typeof props.labelField === 'function'
+                            ? props.labelField(data)
+                            : fetchObject(data, props.labelField)
+                        || '';
                     })
                     .catch(error => {
                         console.error('[Cinderblock error]: There was an error retrieving autocomplete control default value.');
@@ -277,16 +287,25 @@
                 if (Promise.resolve(data) == data) { // check if Promise
                     data.then((data: any) => {
                         avatar.value = props.avatarField ? fetchObject(data, props.avatarField) : '';
-                        searchString.value = fetchObject(data, props.labelField) || '';
+                        searchString.value = typeof props.labelField === 'function'
+                            ? props.labelField(data)
+                            : fetchObject(data, props.labelField)
+                        || '';
                     })
                 } else if (data) {
                     avatar.value = props.avatarField ? fetchObject(data, props.avatarField) : '';
-                    searchString.value = fetchObject(data, props.labelField) || '';
+                    searchString.value = typeof props.labelField === 'function'
+                        ? props.labelField(data)
+                        : fetchObject(data, props.labelField)
+                    || '';
                 } else {
                     searchString.value = '';
                 }
             } else {
-                searchString.value = fetchObject(props.modelValue, props.labelField) || '';
+                searchString.value = typeof props.labelField === 'function'
+                    ? props.labelField(props.modelValue)
+                    : fetchObject(props.modelValue, props.labelField)
+                || '';
             }
         } else {
             searchString.value = selectedValue;
