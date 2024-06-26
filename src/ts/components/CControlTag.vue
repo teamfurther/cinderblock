@@ -82,7 +82,7 @@
 </template>
 
 <script setup lang="ts">
-    import { onMounted, PropType, ref } from 'vue';
+    import { onMounted, PropType, ref, watch } from 'vue';
     import { debounce } from 'debounce';
 
     import CIcon from './CIcon.vue';
@@ -250,16 +250,16 @@
 
         searchString.value = '';
         selectedValues.value = selectedValues.value.concat([fetchObject(value, props.valueField) || value]);
-        selectedTags.value = selectedTags.value.concat([
+        selectedTags.value.push(
             typeof props.labelField === 'function'
                 ? props.labelField(value)
                 : fetchObject(value, props.labelField)
-        ]);
-
+        );
         emits('update:modelValue', selectedValues.value);
     }
 
     function setup() {
+        selectedTags.value = [];
         selectedValues.value = props.modelValue;
 
         if (props.labelField !== props.valueField) {
@@ -307,4 +307,8 @@
             selectedTags.value = props.modelValue;
         }
     }
+
+    watch(() => props.modelValue, () => {
+        setup();
+    });
 </script>
