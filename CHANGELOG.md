@@ -2,6 +2,9 @@
 
 All notable changes to `@teamfurther/cinderblock` will be documented in this file.
 
+## 1.0.16 - 2024-06-27
+- Version bump to fix NPM publish issue. 
+
 ## 1.0.15 - 2024-06-26
 - Fixed a bug in CControlTag, when it didn't refresh when model value was changed. 
 
