@@ -2,6 +2,9 @@
 
 All notable changes to `@teamfurther/cinderblock` will be documented in this file.
 
+## 1.0.17 - 2024-06-27
+- Fixed CSS in CControlTag: tags now have vertical spacing.
+
 ## 1.0.16 - 2024-06-27
 - Version bump to fix NPM publish issue. 
 

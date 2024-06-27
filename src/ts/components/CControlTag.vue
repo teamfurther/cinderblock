@@ -60,11 +60,11 @@
                 </li>
             </ul>
         </div>
-        <ul class="c-control__tags flex flex-wrap mt-2"
+        <ul class="c-control__tags flex flex-wrap mt-1"
             v-bind:class="{ 'cursor-not-allowed opacity-3': disabled, 'cursor-not-allowed': readonly }"
             v-if="selectedTags.length > 0"
         >
-            <li v-for="(tag, key) in selectedTags">
+            <li class="mt-1" v-for="(tag, key) in selectedTags">
                 <a class="bg-highlight duration-500 flex items-center mr-1.5 px-1.5 py-1 rounded text-white text-xs transition-all">
                     {{ tag }}
                     <span class="after:absolute after:content-['&times;'] after:left-1/2 after:-mt-px after:top-1/2 after:-translate-x-1/2 after:-translate-y-1/2 bg-white cursor-pointer font-extrabold h-4 ml-1 relative rounded-full text-highlight w-4" v-on:click="deselectValue(key)"></span>
