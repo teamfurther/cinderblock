@@ -2,6 +2,9 @@
 
 All notable changes to `@teamfurther/cinderblock` will be documented in this file.
 
+## 1.0.18 - 2024-07-31
+- UX improvements in CControlToggle: selected state is now more obvious.
+
 ## 1.0.18 - 2024-06-27
 - Version bump to fix NPM publish issue.
 

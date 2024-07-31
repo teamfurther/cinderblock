@@ -20,7 +20,7 @@
                        v-bind:readonly="readonly"
                        v-on:change="updateSelectedValue(!selectedValue)"
                 />
-                <span class="c-control__toggle__mask absolute before:absolute before:bg-slate-200 before:content-[''] before:block before:duration-500 before:h-5 before:left-0 before:ml-[35px] before:rounded-full before:top-1/2 before:transition-all before:-translate-y-1/2 before:w-5 bg-slate-100 border border-slate-200 duration-500 h-[30px] left-0 peer-checked:before:bg-highlight peer-checked:before:ml-[3px] peer-checked:border-highlight rounded-full transition-all w-[60px] z-10"></span>
+                <span class="c-control__toggle__mask absolute before:absolute before:bg-slate-200 before:content-[''] before:block before:duration-500 before:h-5 before:left-0 before:ml-[3px] before:rounded-full before:top-1/2 before:transition-all before:-translate-y-1/2 before:w-5 bg-slate-100 border border-slate-200 duration-500 h-[30px] left-0 peer-checked:before:bg-white peer-checked:before:ml-[35px] peer-checked:bg-highlight peer-checked:border-highlight rounded-full transition-all w-[60px] z-10"></span>
             </div>
 
             <c-tooltip-icon v-bind:position="tooltipPosition" v-if="tooltip">{{ tooltip }}</c-tooltip-icon>

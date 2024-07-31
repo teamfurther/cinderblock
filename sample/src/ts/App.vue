@@ -132,6 +132,7 @@
 
         <c-control-text
             class-field="bg-orange-100"
+            disabled
             label="Text"
             name="text"
             v-model="textValue"
