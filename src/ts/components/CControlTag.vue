@@ -65,9 +65,14 @@
             v-if="selectedTags.length > 0"
         >
             <li class="mt-1" v-for="(tag, key) in selectedTags">
-                <a class="bg-highlight duration-500 flex items-center mr-1.5 px-1.5 py-1 rounded text-white text-xs transition-all">
-                    {{ tag }}
-                    <span class="after:absolute after:content-['&times;'] after:left-1/2 after:-mt-px after:top-1/2 after:-translate-x-1/2 after:-translate-y-1/2 bg-white cursor-pointer font-extrabold h-4 ml-1 relative rounded-full text-highlight w-4" v-on:click="deselectValue(key)"></span>
+                <a class="bg-highlight duration-500 flex items-center mr-1.5 px-1.5 py-1 rounded text-white text-xs transition-all"
+                   v-bind:class="{ '!bg-error' : erroneousTags.indexOf(tag.key) !== -1 }"
+                >
+                    {{ tag.label }}
+                    <span class="after:absolute after:content-['&times;'] after:left-1/2 after:-mt-px after:top-1/2 after:-translate-x-1/2 after:-translate-y-1/2 bg-white cursor-pointer font-extrabold h-4 ml-1 relative rounded-full text-highlight w-4"
+                          v-bind:class="{ '!text-error' : erroneousTags.indexOf(tag.key) !== -1 }"
+                          v-on:click="deselectValue(key)"
+                    ></span>
                 </a>
             </li>
         </ul>
@@ -104,6 +109,14 @@
     let selectedValues = ref<any[]>([]);
 
     const props = defineProps({
+        avatarField: {
+            default: null,
+            type: String,
+        },
+        avatarPosition: {
+            default: 'left',
+            type: String as PropType<PositionXEnum>,
+        },
         classField: {
             default: '',
             type: String,
@@ -116,17 +129,13 @@
             default: '',
             type: String,
         },
-        avatarField: {
-            default: null,
-            type: String,
-        },
-        avatarPosition: {
-            default: 'left',
-            type: String as PropType<PositionXEnum>,
-        },
         disabled: {
             default: false,
             type: Boolean,
+        },
+        erroneousTags: {
+            default: [],
+            type: Array as PropType<string[]>
         },
         icon: {
             default: '',
@@ -149,7 +158,7 @@
             type: [Function, String],
         },
         modelValue: {
-            default: []
+            default: [],
         },
         name: {
             required: true,
@@ -250,11 +259,12 @@
 
         searchString.value = '';
         selectedValues.value = selectedValues.value.concat([fetchObject(value, props.valueField) || value]);
-        selectedTags.value.push(
-            typeof props.labelField === 'function'
-                ? props.labelField(value)
-                : fetchObject(value, props.labelField)
-        );
+        selectedTags.value.push({
+            key: fetchObject(value, props.valueField) || value,
+            label: typeof props.labelField === 'function'
+                    ? props.labelField(value)
+                    : fetchObject(value, props.labelField)
+        });
         emits('update:modelValue', selectedValues.value);
     }
 
@@ -268,11 +278,12 @@
                     fetch(props.sourceGet + value)
                         .then(response => response.json())
                         .then(data => {
-                            selectedTags.value = selectedTags.value.concat(
-                                typeof props.labelField === 'function'
-                                    ? props.labelField(data)
-                                    : fetchObject(data, props.labelField)
-                            );
+                            selectedTags.value = selectedTags.value.concat({
+                                key: value,
+                                label: typeof props.labelField === 'function'
+                                        ? props.labelField(data)
+                                        : fetchObject(data, props.labelField)
+                            });
                         })
                         .catch(error => {
                             console.error('[Cinderblock error]: There was an error retrieving tag control default value');
@@ -282,25 +293,28 @@
 
                     if (Promise.resolve(data) == data) { // check if Promise
                         data.then((data: any) => {
-                            selectedTags.value = selectedTags.value.concat(
-                                typeof props.labelField === 'function'
-                                    ? props.labelField(data)
-                                    : fetchObject(data, props.labelField)
-                            );
+                            selectedTags.value = selectedTags.value.concat({
+                                key: value,
+                                label: typeof props.labelField === 'function'
+                                        ? props.labelField(data)
+                                        : fetchObject(data, props.labelField)
+                            });
                         })
                     } else if (data) {
-                        selectedTags.value = selectedTags.value.concat(
-                            typeof props.labelField === 'function'
-                                ? props.labelField(data)
-                                : fetchObject(data, props.labelField)
-                        );
+                        selectedTags.value = selectedTags.value.concat({
+                            key: value,
+                            label: typeof props.labelField === 'function'
+                                    ? props.labelField(data)
+                                    : fetchObject(data, props.labelField)
+                        });
                     }
                 } else {
-                    selectedTags.value = selectedTags.value.concat(
-                        typeof props.labelField === 'function'
-                            ? props.labelField(props.modelValue)
-                            : fetchObject(props.modelValue, props.labelField)
-                    );
+                    selectedTags.value = selectedTags.value.concat({
+                        key: value,
+                        label: typeof props.labelField === 'function'
+                                ? props.labelField(props.modelValue)
+                                : fetchObject(props.modelValue, props.labelField)
+                    });
                 }
             });
         } else {

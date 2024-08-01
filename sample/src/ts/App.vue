@@ -119,6 +119,7 @@
             tooltip="I am a tooltip"
             tooltip-position="left"
             value-field="alpha3Code"
+            v-bind:erroneous-tags="['rou']"
             v-bind:label-field="(data) => data.name + ' (' + data.alpha3Code + ')'"
             v-model="tagValues"
         />
