@@ -2,6 +2,9 @@
 
 All notable changes to `@teamfurther/cinderblock` will be documented in this file.
 
+## 1.0.21 - 2024-10-23
+- Fixed CSS height issue with CControlToggle.
+
 ## 1.0.20 - 2024-08-01
 - CControlTag now accepts list of erroneous values that will be highlighted in error colour.
 
