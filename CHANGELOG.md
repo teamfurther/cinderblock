@@ -2,6 +2,9 @@
 
 All notable changes to `@teamfurther/cinderblock` will be documented in this file.
 
+## 1.0.22 - 2024-10-23
+- Version bump to fix NPM publish issue.
+
 ## 1.0.21 - 2024-10-23
 - Fixed CSS height issue with CControlToggle.
 
