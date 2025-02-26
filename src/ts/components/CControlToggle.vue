@@ -1,7 +1,7 @@
 <template>
     <div class="c-control c-control-toggle">
         <label class="c-control__label block font-medium mb-1 text-slate-800 text-sm"
-               v-bind:class="{ '!text-error': invalid, 'after:content-[\'*\'] after:text-red-400': required }"
+               v-bind:class="[{ '!text-error': invalid, 'after:content-[\'*\'] after:text-red-400': required }, classLabel]"
                v-bind:for="name"
                v-if="label"
         >
@@ -9,11 +9,12 @@
         </label>
 
         <div class="c-control__group c-control-toggle__group flex items-center"
-             v-bind:class="{ 'cursor-not-allowed opacity-30' : disabled, 'cursor-not-allowed' : readonly }"
+             v-bind:class="[{ 'cursor-not-allowed opacity-30' : disabled, 'cursor-not-allowed' : readonly }, classGroup]"
         >
-            <div class="c-control__toggle__wrapper flex relative">
+            <div class="c-control__toggle__wrapper flex relative" v-bind:class="classFieldWrapper">
                 <input class="c-control__toggle cursor-pointer h-[30px] opacity-0 peer relative w-[60px] z-20" type="checkbox"
                        v-bind:checked="selectedValue"
+                       v-bind:class="classField"
                        v-bind:disabled="disabled"
                        v-bind:id="name"
                        v-bind:name="name"
@@ -45,6 +46,22 @@
     let selectedValue = ref<any>(null);
 
     const props = defineProps({
+        classField: {
+            default: '',
+            type: String,
+        },
+        classFieldWrapper: {
+            default: '',
+            type: String,
+        },
+        classGroup: {
+            default: '',
+            type: String,
+        },
+        classLabel: {
+            default: '',
+            type: String,
+        },
         disabled: {
             default: false,
             type: Boolean,
