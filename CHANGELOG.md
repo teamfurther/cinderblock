@@ -2,6 +2,9 @@
 
 All notable changes to `@teamfurther/cinderblock` will be documented in this file.
 
+## 1.0.24 - 2025-02-26
+- Version bump to fix NPM publish issue.
+
 ## 1.0.23 - 2025-02-26
 - CControlToggle classes can now be controlled granularly.
 
