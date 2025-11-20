@@ -52,7 +52,10 @@
     ],
     "testEnvironment": "jsdom",
     "testEnvironmentOptions": {
-      "customExportConditions": ["node", "node-addons"]
+      "customExportConditions": [
+        "node",
+        "node-addons"
+      ]
     },
     "transform": {
       "^.+\\.js$": "babel-jest",
@@ -86,5 +89,5 @@
     "prepare": "npm run build",
     "test": "jest"
   },
-  "version": "1.0.24"
+  "version": "1.0.25"
 }
