@@ -11,6 +11,7 @@
 
 <script setup lang="ts">
     import CAlert from './CAlert.vue';
+
     import { AlertTypeEnum } from '../enums/AlertTypeEnum';
     import { AlertType } from '../types/AlertType';
 

@@ -258,13 +258,14 @@
         searchResults.value = [];
 
         searchString.value = '';
-        selectedValues.value = selectedValues.value.concat([fetchObject(value, props.valueField) || value]);
+        selectedValues.value.push(fetchObject(value, props.valueField) || value);
         selectedTags.value.push({
             key: fetchObject(value, props.valueField) || value,
             label: typeof props.labelField === 'function'
                     ? props.labelField(value)
                     : fetchObject(value, props.labelField)
         });
+
         emits('update:modelValue', selectedValues.value);
     }
 
@@ -273,17 +274,19 @@
         selectedValues.value = props.modelValue;
 
         if (props.labelField !== props.valueField) {
-            selectedValues.value.forEach((value: string) => {
+            selectedValues.value.forEach((value: string, index: number) => {
+                selectedTags.value[index] = { key: value, label: '' };
+
                 if (props.sourceGet !== '' && typeof props.sourceGet === 'string') {
                     fetch(props.sourceGet + value)
                         .then(response => response.json())
                         .then(data => {
-                            selectedTags.value = selectedTags.value.concat({
+                            selectedTags.value[index] = {
                                 key: value,
                                 label: typeof props.labelField === 'function'
-                                        ? props.labelField(data)
-                                        : fetchObject(data, props.labelField)
-                            });
+                                    ? props.labelField(data)
+                                    : fetchObject(data, props.labelField as string),
+                            };
                         })
                         .catch(error => {
                             console.error('[Cinderblock error]: There was an error retrieving tag control default value');
@@ -293,28 +296,28 @@
 
                     if (Promise.resolve(data) == data) { // check if Promise
                         data.then((data: any) => {
-                            selectedTags.value = selectedTags.value.concat({
+                            selectedTags.value[index] = {
                                 key: value,
                                 label: typeof props.labelField === 'function'
-                                        ? props.labelField(data)
-                                        : fetchObject(data, props.labelField)
-                            });
+                                    ? props.labelField(data)
+                                    : fetchObject(data, props.labelField as string),
+                            };
                         })
                     } else if (data) {
-                        selectedTags.value = selectedTags.value.concat({
+                        selectedTags.value[index] = {
                             key: value,
                             label: typeof props.labelField === 'function'
-                                    ? props.labelField(data)
-                                    : fetchObject(data, props.labelField)
-                        });
+                                ? props.labelField(data)
+                                : fetchObject(data, props.labelField as string),
+                        };
                     }
                 } else {
-                    selectedTags.value = selectedTags.value.concat({
+                    selectedTags.value[index] = {
                         key: value,
                         label: typeof props.labelField === 'function'
-                                ? props.labelField(props.modelValue)
-                                : fetchObject(props.modelValue, props.labelField)
-                    });
+                            ? props.labelField(props.modelValue)
+                            : fetchObject(props.modelValue, props.labelField as string),
+                    };
                 }
             });
         } else {

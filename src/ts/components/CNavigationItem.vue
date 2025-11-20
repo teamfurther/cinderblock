@@ -33,6 +33,7 @@
 
 <script setup lang="ts">
     import { computed, PropType } from 'vue';
+
     import { PositionXEnum } from '../enums/PositionXEnum';
 
     const props = defineProps({

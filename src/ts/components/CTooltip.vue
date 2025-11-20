@@ -23,6 +23,7 @@
 
 <script setup lang="ts">
     import { PropType } from 'vue';
+
     import { PositionEnum } from '../enums/PositionEnum';
 
     const props = defineProps({

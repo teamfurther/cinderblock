@@ -2,6 +2,9 @@
 
 All notable changes to `@teamfurther/cinderblock` will be documented in this file.
 
+## 1.0.25 - 2025-11-20
+- Fixed async issues in CControlTag. Dependency and code style updates.
+
 ## 1.0.24 - 2025-02-26
 - Version bump to fix NPM publish issue.
 

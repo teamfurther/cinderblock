@@ -8,9 +8,10 @@
 </template>
 
 <script setup lang="ts">
+    import { PropType, ref } from 'vue';
+
     import CIcon from './CIcon.vue';
     import CTooltip from './CTooltip.vue';
-    import { PropType, ref } from 'vue';
     import { PositionEnum } from '../enums/PositionEnum';
 
     // Data
