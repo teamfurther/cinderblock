@@ -2,6 +2,9 @@
 
 All notable changes to `@teamfurther/cinderblock` will be documented in this file.
 
+## 1.0.26 - 2026-01-29
+- CControlAutocomplete and CControlTag now accept a sublabel.
+
 ## 1.0.25 - 2025-11-20
 - Fixed async issues in CControlTag. Dependency and code style updates.
 

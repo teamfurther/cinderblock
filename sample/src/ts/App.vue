@@ -39,6 +39,7 @@
             name="autocomplete"
             source-get="https://restcountries.com/v2/alpha/"
             source-search="https://restcountries.com/v2/name/"
+            sublabel-field="capital"
             value-field="alpha3Code"
             v-model="autocompleteValue"
         >
@@ -116,6 +117,7 @@
             name="tag"
             source-get="https://restcountries.com/v2/alpha/"
             source-search="https://restcountries.com/v2/name/"
+            sublabel-field="capital"
             tooltip="I am a tooltip"
             tooltip-position="left"
             value-field="alpha3Code"

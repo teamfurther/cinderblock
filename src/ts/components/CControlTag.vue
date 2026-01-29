@@ -43,10 +43,14 @@
                 v-if="searchResults.length"
             >
                 <li v-for="searchResult in searchResults">
-                    <a class="cursor-pointer flex h-8 hover:bg-slate-50 items-center px-2.5 py-1 w-full"
+                    <a class="cursor-pointer flex hover:bg-slate-50 items-center px-2.5 py-1 w-full"
                        v-on:click="selectValue(searchResult)"
                     >
-                        <span v-text="typeof labelField === 'function' ? labelField(searchResult) : fetchObject(searchResult, labelField)" />
+                        <div class="flex flex-col">
+                            <span v-text="typeof labelField === 'function' ? labelField(searchResult) : fetchObject(searchResult, labelField)" />
+
+                            <small class="text-slate-400" v-if="sublabelField" v-text="typeof sublabelField === 'function' ? sublabelField(searchResult) : fetchObject(searchResult, sublabelField)"></small>
+                        </div>
 
                         <img class="h-6 -mt-px rounded w-6"
                              v-bind:class="{
@@ -181,6 +185,10 @@
             type: [Function, String],
         },
         sourceSearch: {
+            required: true,
+            type: [Function, String],
+        },
+        sublabelField: {
             required: true,
             type: [Function, String],
         },
